@@ -657,7 +657,7 @@
                 
                 <div class="contact-form">
                     <h3 style="margin-bottom: 1.5rem;">Envíeme un Mensaje</h3>
-                    <form id="contactForm">
+                    <form action="https://formspree.io/f/xgejzpvw" method="POST" id="contactForm">
                         <div class="form-group">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required>
@@ -674,6 +674,10 @@
                             <label for="mensaje">Mensaje</label>
                             <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
                         </div>
+                        <!-- Campo oculto para tu email -->
+                        <input type="hidden" name="_to" value="alaezprocurador@gmail.com">
+                        <input type="hidden" name="_subject" value="Nueva consulta desde página web">
+                        <input type="hidden" name="_next" value="thanks.html">
                         <button type="submit" class="submit-btn">
                             Enviar Mensaje
                             <span class="loading" style="display: none;"></span>
@@ -710,10 +714,8 @@
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Form submission
+        // Form submission with real email functionality
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const submitBtn = this.querySelector('.submit-btn');
             const loading = submitBtn.querySelector('.loading');
             
@@ -721,13 +723,8 @@
             loading.style.display = 'inline-block';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                loading.style.display = 'none';
-                submitBtn.disabled = false;
-                alert('¡Gracias por su mensaje! Me pondré en contacto con usted a la mayor brevedad posible.');
-                this.reset();
-            }, 2000);
+            // The form will be submitted to Formspree automatically
+            // No need to prevent default or handle manually
         });
 
         // Intersection Observer for fade-in animations
