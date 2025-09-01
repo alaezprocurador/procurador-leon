@@ -475,3 +475,542 @@
         .footer {
             background: var(--text-dark);
             color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .cookie-banner p {
+            margin-bottom: 1rem;
+        }
+
+        .cookie-banner button {
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 250px;
+                background: var(--primary-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-banner {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll Smooth */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Antonio Aláez Gutiérrez - Procurador de los Tribunales",
+        "description": "Procurador en León con más de 12 años de experiencia en representación procesal, notificaciones y trámites jurídicos.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Los Aluches, Nº 19, 5ºG",
+            "addressLocality": "León",
+            "addressRegion": "León",
+            "postalCode": "24005",
+            "addressCountry": "ES"
+        },
+        "telephone": "+34 606 375 639",
+        "email": "alaezprocurador@gmail.com",
+        "url": "https://alaezprocurador.github.io/procurador-leon/",
+        "openingHours": "Mo-Fr 09:00-18:00"
+    }
+    </script>
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Utilizamos cookies para mejorar su experiencia en nuestro sitio web. <a href="/politica-de-cookies" style="color: var(--accent-color);">Más información</a></p>
+        <button onclick="acceptCookies()">Aceptar</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                Antonio Aláez
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Abrir menú móvil">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <div class="colegiado-badge">
+                    <i class="fas fa-certificate"></i> Colegiado nº 299 - Ilustre Colegio de Procuradores de León
+                </div>
+                <h1>Antonio Aláez Gutiérrez</h1>
+                <p class="subtitle">Procurador de los Tribunales en León</p>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Licenciado en Derecho por la Universidad de León<br>Más de 12 años de experiencia en servicios jurídicos en León</p>
+                <a href="#contacto" class="cta-button">
+                    <i class="fas fa-phone"></i> Solicite un Presupuesto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Servicios Profesionales</h2>
+                <p>Ofrezco servicios jurídicos especializados como procurador en la provincia de León, incluyendo representación procesal, gestión de notificaciones y trámites en registros.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Representación Procesal</h3>
+                    <p>Representación en procedimientos judiciales en los partidos judiciales de León, Sahagún, La Bañeza, Astorga y Cistierna, garantizando un servicio eficiente y profesional.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Gestión de Notificaciones</h3>
+                    <p>Gestión ágil de notificaciones judiciales y extrajudiciales, asegurando que reciba toda la información relevante de su expediente en tiempo real.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trámites en Registros</h3>
+                    <p>Realización de trámites en registros públicos y privados, con total confidencialidad y responsabilidad en cada gestión.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Precios Competitivos</h3>
+                    <p>Presupuestos ajustados y transparentes, sin costes ocultos, adaptados a las necesidades de cada asunto jurídico.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contacto" class="cta-button">Contácteme para más información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen mis clientes</h2>
+                <p>La satisfacción de mis clientes es mi prioridad. Conozca algunas de sus opiniones sobre mis servicios.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <p>"Antonio gestionó mi caso con gran profesionalidad y me mantuvo informado en todo momento. Muy recomendable."</p>
+                    <h4>María G., León</h4>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <p>"Gracias a su rapidez y eficiencia, mi procedimiento se resolvió sin complicaciones. Un servicio de confianza."</p>
+                    <h4>Juan P., Astorga</h4>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <p>"Excelente atención y precios muy razonables. Sin duda, volveré a contar con él para futuros trámites."</p>
+                    <h4>Laura M., Sahagún</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre-mi">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre Antonio Aláez Gutiérrez</h2>
+                    <p>Soy procurador de los tribunales colegiado en el Ilustre Colegio de Procuradores de León (nº 299) y licenciado en Derecho por la Universidad de León. Con más de 12 años de experiencia, ofrezco servicios jurídicos profesionales en toda la provincia de León, incluyendo los partidos judiciales de León, Sahagún, La Bañeza, Astorga y Cistierna.</p>
+                    <p>Mi despacho se distingue por su compromiso con la excelencia, la atención personalizada y la transparencia en cada caso. Mi objetivo es facilitar los procesos judiciales de mis clientes, garantizando eficiencia, confianza y resultados.</p>
+                    <div class="credentials">
+                        <div class="credential">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Licenciado en Derecho ULE</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-certificate"></i>
+                            <span>Colegiado nº 299</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Partidos judiciales: León, Sahagún, La Bañeza, Astorga, Cistierna</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-clock"></i>
+                            <span>+12 años de experiencia</span>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="cta-button" style="margin-top: 2rem;">Contácteme</a>
+                </div>
+                <div class="about-image">
+                    <img src="procurador-image.jpg" alt="Antonio Aláez Gutiérrez, procurador en León" width="100%" height="400">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info-section">
+                    <h2>Contacto</h2>
+                    <p>Estoy aquí para ayudarle con cualquier consulta jurídica. Contácteme para un presupuesto personalizado o para resolver sus dudas. Le responderé en menos de 24 horas.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div class="contact-details">
+                                <h4>Teléfono Móvil</h4>
+                                <p><a href="tel:+34606375639">606 375 639</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-details">
+                                <h4>Teléfono Fijo</h4>
+                                <p><a href="tel:+34987700644">987 700 644</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-details">
+                                <h4>Dirección</h4>
+                                <p>Calle Los Aluches, Nº 19, 5ºG<br>24005 León</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-gavel"></i>
+                            <div class="contact-details">
+                                <h4>Ámbito de Actuación</h4>
+                                <p>León, Sahagún, La Bañeza, Astorga, Cistierna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem;">Envíeme un Mensaje</h3>
+                    <form action="https://formspree.io/f/xgejzpvw" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="su.email@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Su teléfono">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-consulta">Tipo de consulta</label>
+                            <select id="tipo-consulta" name="tipo-consulta">
+                                <option value="general">Consulta general</option>
+                                <option value="representacion">Representación procesal</option>
+                                <option value="notificaciones">Gestión de notificaciones</option>
+                                <option value="registros">Trámites en registros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
+                        </div>
+                        <input type="hidden" name="_to" value="alaezprocurador@gmail.com">
+                        <input type="hidden" name="_subject" value="Nueva consulta desde página web">
+                        <input type="hidden" name="_next" value="thanks.html">
+                        <button type="submit" class="submit-btn">
+                            Enviar Mensaje
+                            <span class="loading" style="display: none;"></span>
+                        </button>
+                    </form>
+                    <p id="formMessage" style="margin-top: 1rem; display: none; text-align: center;">¡Mensaje enviado! Le responderemos en menos de 24 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#inicio" class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Antonio Aláez Gutiérrez - Procurador de los Tribunales en León. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="/aviso-legal">Aviso Legal</a> |
+                <a href="/politica-privacidad">Política de Privacidad</a> |
+                <a href="/politica-cookies">Política de Cookies</a>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com" target="_blank" aria-label="X"><i class="fab fa-x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GA_ID'); // Sustituye YOUR_GA_ID por tu ID de Google Analytics
+    </script>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Form submission with real email functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.submit-btn');
+            const loading = submitBtn.querySelector('.loading');
+            const formMessage = document.getElementById('formMessage');
+            
+            loading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+
+            // Handle form submission via Formspree
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    formMessage.style.display = 'block';
+                    this.reset();
+                }
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            }).catch(error => {
+                console.error('Error:', error);
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Back to top button visibility
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Cookie banner
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service and testimonial cards
+        document.querySelectorAll('.service-card, .testimonial-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Phone number click to call
+        document.querySelectorAll('[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!navigator.userAgent.match(/Mobi/)) {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(link.textContent).then(() => {
+                        alert('Número copiado al portapapeles: ' + link.textContent);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
