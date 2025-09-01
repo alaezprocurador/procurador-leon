@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antonio Aláez Gutiérrez - Procurador de los Tribunales en León</title>
-    <meta name="description" content="Procurador de los Tribunales en León con más de 20 años de experiencia. Servicios jurídicos profesionales en toda la provincia de León.">
+    <title>Procurador en León | Antonio Aláez Gutiérrez</title>
+    <meta name="description" content="Procurador en León con más de 12 años de experiencia. Servicios jurídicos profesionales en representación procesal, notificaciones y trámites en toda la provincia de León.">
+    <meta name="keywords" content="procurador León, servicios jurídicos León, representación procesal, Antonio Aláez Gutiérrez, procurador tribunales">
+    <meta name="author" content="Antonio Aláez Gutiérrez">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Añade tu favicon -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -235,6 +239,38 @@
             line-height: 1.7;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
         /* About Section */
         .about {
             padding: 80px 0;
@@ -282,33 +318,10 @@
             font-size: 1.2rem;
         }
 
-        .about-image {
-            position: relative;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .about-image img {
             width: 100%;
-            height: 100%;
-            background: var(--gradient);
             border-radius: 20px;
-            z-index: -1;
-        }
-
-        .justice-illustration {
-            width: 100%;
-            height: 400px;
-            background: var(--gradient);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 8rem;
-            opacity: 0.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         /* Contact Section */
@@ -393,7 +406,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid rgba(255,255,255,0.3);
@@ -401,6 +415,13 @@
             background: rgba(255,255,255,0.1);
             color: white;
             backdrop-filter: blur(10px);
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="white" d="M6 9l-4-4h8z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
         }
 
         .form-group input::placeholder,
@@ -425,352 +446,32 @@
             box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Footer */
         .footer {
             background: var(--text-dark);
             color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .credentials {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Scroll Smooth */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: var(--accent-color);
-            animation: spin 1s ease-in-out infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="logo">
-                <i class="fas fa-balance-scale"></i>
-                Antonio Aláez
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <button class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <div class="hero-content fade-in-up">
-                <div class="colegiado-badge">
-                    <i class="fas fa-certificate"></i> Colegiado nº 299 - Ilustre Colegio de Procuradores de León
-                </div>
-                <h1>Antonio Aláez Gutiérrez</h1>
-                <p class="subtitle">Procurador de los Tribunales en León</p>
-                <p style="margin-bottom: 2rem; opacity: 0.9;">Licenciado en Derecho por la Universidad de León<br>Más de 12 años de experiencia profesional</p>
-                <a href="#contacto" class="cta-button">
-                    <i class="fas fa-phone"></i> Contactar Ahora
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Mis Servicios</h2>
-                <p>Ofrezco servicios jurídicos profesionales con garantías de calidad, eficiencia y total confidencialidad en toda la provincia de León.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in-up">
-                    <div class="service-icon">
-                        <i class="fas fa-euro-sign"></i>
-                    </div>
-                    <h3>Precios Competitivos</h3>
-                    <p>Presupuestos económicos y ajustados en función de la clase de asunto. Transparencia total en todos los costes sin sorpresas.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <div class="service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Servicio Ágil</h3>
-                    <p>Gestión eficiente de todos los trámites, informando puntualmente de las novedades que se vayan produciendo en su expediente.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Máxima Confianza</h3>
-                    <p>Garantizo responsabilidad en la gestión, honradez profesional y absoluta confidencialidad en todos los asuntos tratados.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="sobre-mi">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Experiencia y Profesionalidad</h2>
-                    <p>Como Procurador de los Tribunales colegiado en León, mi compromiso es brindar un servicio jurídico de excelencia, basado en la experiencia, la eficiencia y la confianza mutua.</p>
-                    <p>Mi despacho se caracteriza por ofrecer una atención personalizada y un seguimiento exhaustivo de cada caso, garantizando que mis clientes estén siempre informados del estado de sus asuntos.</p>
-                    
-                    <div class="credentials">
-                        <div class="credential">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Licenciado en Derecho ULE</span>
-                        </div>
-                        <div class="credential">
-                            <i class="fas fa-certificate"></i>
-                            <span>Colegiado nº 299</span>
-                        </div>
-                        <div class="credential">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Toda la provincia de León</span>
-                        </div>
-                        <div class="credential">
-                            <i class="fas fa-clock"></i>
-                            <span>+12 años de experiencia</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="justice-illustration">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info-section">
-                    <h2>Contacto</h2>
-                    <p>No dude en ponerse en contacto conmigo para cualquier consulta jurídica. Estaré encantado de atenderle y ofrecerle el mejor servicio profesional.</p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div class="contact-details">
-                                <h4>Teléfono Móvil</h4>
-                                <p>606 375 639</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-details">
-                                <h4>Teléfono Fijo</h4>
-                                <p>987 700 644</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-details">
-                                <h4>Dirección</h4>
-                                <p>Calle Los Aluches, Nº 19, 5ºG<br>24005 León</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-gavel"></i>
-                            <div class="contact-details">
-                                <h4>Ámbito de Actuación</h4>
-                                <p>Toda la provincia de León</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Envíeme un Mensaje</h3>
-                    <form action="https://formspree.io/f/xgejzpvw" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="su.email@ejemplo.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Su teléfono">
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
-                        </div>
-                        <!-- Campo oculto para tu email -->
-                        <input type="hidden" name="_to" value="alaezprocurador@gmail.com">
-                        <input type="hidden" name="_subject" value="Nueva consulta desde página web">
-                        <input type="hidden" name="_next" value="thanks.html">
-                        <button type="submit" class="submit-btn">
-                            Enviar Mensaje
-                            <span class="loading" style="display: none;"></span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Antonio Aláez Gutiérrez - Procurador de los Tribunales en León. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Form submission with real email functionality
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('.submit-btn');
-            const loading = submitBtn.querySelector('.loading');
-            
-            // Show loading animation
-            loading.style.display = 'inline-block';
-            submitBtn.disabled = true;
-            
-            // The form will be submitted to Formspree automatically
-            // No need to prevent default or handle manually
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(30, 58, 138, 0.95)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
-            }
-        });
-
-        // Phone number click to call
-        document.querySelectorAll('[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (!navigator.userAgent.match(/Mobi/)) {
-                    e.preventDefault();
-                    navigator.clipboard.writeText(link.textContent).then(() => {
-                        alert('Número copiado al portapapeles: ' + link.textContent);
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
