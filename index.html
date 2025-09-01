@@ -3,77 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto</title>
+  <title>Alaez Procurador - León</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      line-height: 1.6;
     }
-    .container {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 500px;
-      width: 100%;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 1.5rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    label {
-      font-weight: bold;
-      color: #444;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    button {
-      background: #007bff;
+    header {
+      background: #333;
       color: #fff;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      padding: 1rem 0;
+      text-align: center;
     }
-    button:hover {
-      background: #0056b3;
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .contact-form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .contact-form button {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background: #555;
+    }
+    .form-message {
+      margin-top: 15px;
+      padding: 10px;
+      display: none;
+      border-radius: 5px;
+    }
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Contacto</h1>
-    <form action="https://formspree.io/f/mzzavjqn" method="POST">
-      <label for="email">Tu correo electrónico:</label>
-      <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+  <header>
+    <h1>Alaez Procurador</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <label for="message">Tu mensaje:</label>
-      <textarea id="message" name="message" rows="5" placeholder="Escribe aquí tu mensaje..." required></textarea>
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <p>Soy procurador de los tribunales en León con amplia experiencia en la tramitación de procedimientos judiciales, representación procesal y asesoramiento en cuestiones legales. Mi objetivo es ofrecer un servicio profesional, ágil y cercano a abogados y clientes.</p>
+  </section>
 
-      <!-- Puedes añadir más campos aquí si lo necesitas -->
+  <section id="services">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Representación procesal en todos los órdenes jurisdiccionales.</li>
+      <li>Gestión de notificaciones y escritos judiciales.</li>
+      <li>Asesoramiento y coordinación con abogados.</li>
+      <li>Tramitación ágil de procedimientos en los juzgados de León y provincia.</li>
+    </ul>
+  </section>
 
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-</body>
-</html>
+  <section id="contact">
+    <h2>Contacto</h2>
+    <div class="contact-form">
+      <
