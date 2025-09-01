@@ -657,13 +657,13 @@
                 
                 <div class="contact-form">
                     <h3 style="margin-bottom: 1.5rem;">Envíeme un Mensaje</h3>
-                    <form action="https://formspree.io/f/xgejzpvw" method="POST" id="contactForm">
+                    <form action="https://formspree.io/f/mzzavjqn" method="POST" id="contactForm">
                         <div class="form-group">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Su email</label>
                             <input type="email" id="email" name="email" placeholder="su.email@ejemplo.com" required>
                         </div>
                         <div class="form-group">
@@ -671,13 +671,9 @@
                             <input type="tel" id="telefono" name="telefono" placeholder="Su teléfono">
                         </div>
                         <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
+                            <label for="message">Su mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
                         </div>
-                        <!-- Campo oculto para tu email -->
-                        <input type="hidden" name="_to" value="alaezprocurador@gmail.com">
-                        <input type="hidden" name="_subject" value="Nueva consulta desde página web">
-                        <input type="hidden" name="_next" value="thanks.html">
                         <button type="submit" class="submit-btn">
                             Enviar Mensaje
                             <span class="loading" style="display: none;"></span>
@@ -714,7 +710,7 @@
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Form submission with real email functionality
+        // Form submission with your Formspree endpoint
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             const submitBtn = this.querySelector('.submit-btn');
             const loading = submitBtn.querySelector('.loading');
@@ -723,8 +719,8 @@
             loading.style.display = 'inline-block';
             submitBtn.disabled = true;
             
-            // The form will be submitted to Formspree automatically
-            // No need to prevent default or handle manually
+            // Let the form submit naturally to Formspree
+            // After submission, Formspree will handle the redirect
         });
 
         // Intersection Observer for fade-in animations
