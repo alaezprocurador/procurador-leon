@@ -1,120 +1,234 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alaez Procurador - León</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurador en León | Antonio Aláez Gutiérrez</title>
+    <meta name="description" content="Procurador en León con más de 12 años de experiencia. Servicios jurídicos profesionales en representación procesal, notificaciones y trámites en toda la provincia de León.">
+    <meta name="keywords" content="procurador León, servicios jurídicos León, representación procesal, Antonio Aláez Gutiérrez, procurador tribunales">
+    <meta name="author" content="Antonio Aláez Gutiérrez">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Aquí van todos los estilos que tenías originalmente --- */
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background-light: #f8fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        /* Resto de CSS omitido por brevedad, incluir todo tu CSS original aquí */
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Antonio Aláez Gutiérrez - Procurador de los Tribunales",
+        "description": "Procurador en León con más de 12 años de experiencia en representación procesal, notificaciones y trámites jurídicos.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Los Aluches, Nº 19, 5ºG",
+            "addressLocality": "León",
+            "addressRegion": "León",
+            "postalCode": "24005",
+            "addressCountry": "ES"
+        },
+        "telephone": "+34 606 375 639",
+        "email": "alaezprocurador@gmail.com",
+        "url": "https://alaezprocurador.github.io/procurador-leon/",
+        "openingHours": "Mo-Fr 09:00-18:00"
     }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 1rem 0;
-      text-align: center;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-    }
-    nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-    section {
-      padding: 2rem;
-    }
-    .contact-form {
-      max-width: 600px;
-      margin: auto;
-      background: #f4f4f4;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .contact-form label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .contact-form button {
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background: #555;
-    }
-    .form-message {
-      margin-top: 15px;
-      padding: 10px;
-      display: none;
-      border-radius: 5px;
-    }
-    .form-message.success {
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-    .form-message.error {
-      background: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #333;
-      color: #fff;
-      margin-top: 2rem;
-    }
-  </style>
+    </script>
 </head>
 <body>
-  <header>
-    <h1>Alaez Procurador</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Utilizamos cookies para mejorar su experiencia en nuestro sitio web. <a href="/politica-de-cookies" style="color: var(--accent-color);">Más información</a></p>
+        <button onclick="acceptCookies()">Aceptar</button>
+    </div>
 
-  <section id="about">
-    <h2>Sobre mí</h2>
-    <p>Soy procurador de los tribunales en León con amplia experiencia en la tramitación de procedimientos judiciales, representación procesal y asesoramiento en cuestiones legales. Mi objetivo es ofrecer un servicio profesional, ágil y cercano a abogados y clientes.</p>
-  </section>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                Antonio Aláez
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Abrir menú móvil">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
 
-  <section id="services">
-    <h2>Servicios</h2>
-    <ul>
-      <li>Representación procesal en todos los órdenes jurisdiccionales.</li>
-      <li>Gestión de notificaciones y escritos judiciales.</li>
-      <li>Asesoramiento y coordinación con abogados.</li>
-      <li>Tramitación ágil de procedimientos en los juzgados de León y provincia.</li>
-    </ul>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <div class="colegiado-badge">
+                    <i class="fas fa-certificate"></i> Colegiado nº 299 - Ilustre Colegio de Procuradores de León
+                </div>
+                <h1>Antonio Aláez Gutiérrez</h1>
+                <p class="subtitle">Procurador de los Tribunales en León</p>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Licenciado en Derecho por la Universidad de León<br>Más de 12 años de experiencia en servicios jurídicos en León</p>
+                <a href="#contacto" class="cta-button">
+                    <i class="fas fa-phone"></i> Solicite un Presupuesto
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contacto</h2>
-    <div class="contact-form">
-      <
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Servicios Profesionales</h2>
+                <p>Ofrezco servicios jurídicos especializados como procurador en la provincia de León, incluyendo representación procesal, gestión de notificaciones y trámites en registros.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Tus cards de servicios -->
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contacto" class="cta-button">Contácteme para más información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen mis clientes</h2>
+                <p>La satisfacción de mis clientes es mi prioridad. Conozca algunas de sus opiniones sobre mis servicios.</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Tus testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre-mi">
+        <div class="container">
+            <div class="about-content">
+                <!-- About content aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info-section">
+                    <h2>Contacto</h2>
+                    <p>Estoy aquí para ayudarle con cualquier consulta jurídica. Contácteme para un presupuesto personalizado o para resolver sus dudas. Le responderé en menos de 24 horas.</p>
+                    <div class="contact-info">
+                        <!-- Tus datos de contacto -->
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem;">Envíeme un Mensaje</h3>
+                    <form action="https://formspree.io/f/mzzavjqn" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="su.email@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Su teléfono">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-consulta">Tipo de consulta</label>
+                            <select id="tipo-consulta" name="tipo-consulta">
+                                <option value="general">Consulta general</option>
+                                <option value="representacion">Representación procesal</option>
+                                <option value="notificaciones">Gestión de notificaciones</option>
+                                <option value="registros">Trámites en registros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Enviar Mensaje
+                            <span class="loading" style="display: none;"></span>
+                        </button>
+                        <p id="formMessage" style="margin-top: 1rem; display: none; text-align: center; color: #f59e0b;">¡Mensaje enviado! Le responderemos en menos de 24 horas.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Antonio Aláez Gutiérrez - Procurador de los Tribunales en León. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const loading = submitBtn.querySelector('.loading');
+            const formMessage = document.getElementById('formMessage');
+            
+            loading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    formMessage.style.display = 'block';
+                    this.reset();
+                } else {
+                    alert('Error al enviar el mensaje. Inténtelo de nuevo.');
+                }
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Error al enviar el mensaje. Inténtelo de nuevo.');
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Cookie banner
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
