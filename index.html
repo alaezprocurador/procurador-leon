@@ -284,24 +284,13 @@
     .profile-facts span { color: rgba(255,255,255,.55); }
     .profile-facts strong { text-align: right; font-weight: 600; }
 
-    .coverage { padding: 105px 0; background: var(--paper); }
-    .coverage-head { display: grid; grid-template-columns: 1fr .8fr; gap: clamp(40px, 8vw, 100px); align-items: end; margin-bottom: 44px; }
+    .coverage { padding: 78px 0; background: var(--paper); }
+    .coverage-head { display: grid; grid-template-columns: 1fr .8fr; gap: clamp(40px, 8vw, 100px); align-items: end; margin-bottom: 30px; }
     .coverage-head .section-copy { margin-bottom: 0; }
-    .court-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .court-card {
-      min-height: 132px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 24px;
-      border: 1px solid #d7dcde;
-      border-radius: 14px;
-      background: var(--white);
-      box-shadow: 0 8px 22px rgba(11,31,51,.045);
-    }
-    .court-card span { color: var(--gold); font-family: var(--serif); font-size: 1.15rem; }
-    .court-card strong { color: var(--navy); font-family: var(--serif); font-size: 1.18rem; }
-    .coverage-note { margin: 24px 0 0; color: var(--muted); font-size: .9rem; }
+    .court-list { display: flex; flex-wrap: wrap; gap: 10px 0; margin: 0; padding: 22px 0; border-top: 1px solid #cfd5d7; border-bottom: 1px solid #cfd5d7; list-style: none; }
+    .court-list li { color: var(--navy); font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.28rem); font-weight: 700; }
+    .court-list li:not(:last-child)::after { content: "·"; margin: 0 18px; color: var(--gold); }
+    .coverage-note { margin: 20px 0 0; color: var(--muted); font-size: .9rem; }
 
     .faq { padding: 105px 0; background: var(--paper); }
     .faq-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(50px, 9vw, 110px); align-items: start; }
@@ -350,14 +339,6 @@
     .field input:focus, .field textarea:focus, .field select:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(40,91,125,.13); }
     .field input::placeholder, .field textarea::placeholder { color: #929aa1; }
     .field-hint { margin: -1px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.45; }
-    .field.is-hidden { display: none; }
-    .estimate-box { grid-column: 1 / -1; padding: 22px; border: 1px solid #c9d3d7; border-left: 4px solid var(--gold); border-radius: 10px; background: var(--white); }
-    .estimate-label { margin-bottom: 5px; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
-    .estimate-value { margin-bottom: 8px; color: var(--navy); font-family: var(--serif); font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 700; line-height: 1.25; }
-    .estimate-detail { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
-    .estimate-legal { grid-column: 1 / -1; margin: -2px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.55; }
-    .estimate-legal strong { color: var(--ink); }
-    .estimate-legal a { color: var(--blue); font-weight: 700; }
     .form-note { margin: 18px 0; color: var(--muted); font-size: .8rem; }
     .submit-button { width: 100%; border: 0; cursor: pointer; }
     .honeypot { position: absolute; left: -9999px; }
@@ -413,7 +394,6 @@
       .section-head { display: block; }
       .section-head .section-copy { max-width: 680px; }
       .approach-grid, .faq-grid, .contact-grid, .coverage-head { grid-template-columns: 1fr; }
-      .court-grid { grid-template-columns: repeat(2, 1fr); }
       .approach-copy, .faq-intro { position: static; }
       .profile-grid { grid-template-columns: .75fr 1.25fr; }
       .profile-visual { min-height: 520px; }
@@ -448,7 +428,6 @@
       .profile-facts strong { text-align: left; }
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
-      .estimate-box, .estimate-legal { grid-column: auto; }
       .footer-top, .footer-bottom { display: grid; }
       .footer-nav { justify-content: flex-start; }
       .mobile-call { display: inline-flex; }
@@ -456,8 +435,8 @@
     }
 
     @media (max-width: 520px) {
-      .court-grid { grid-template-columns: 1fr; }
-      .court-card { min-height: 108px; }
+      .court-list { display: grid; gap: 10px; }
+      .court-list li:not(:last-child)::after { content: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -631,15 +610,15 @@
           </div>
           <p class="section-copy">Representación procesal y gestiones de procura en toda la provincia, con coordinación directa con abogados y despachos.</p>
         </div>
-        <div class="court-grid" aria-label="Partidos judiciales de la provincia de León">
-          <article class="court-card"><span>01</span><strong>León</strong></article>
-          <article class="court-card"><span>02</span><strong>Ponferrada</strong></article>
-          <article class="court-card"><span>03</span><strong>Astorga</strong></article>
-          <article class="court-card"><span>04</span><strong>La Bañeza</strong></article>
-          <article class="court-card"><span>05</span><strong>Cistierna</strong></article>
-          <article class="court-card"><span>06</span><strong>Sahagún</strong></article>
-          <article class="court-card"><span>07</span><strong>Villablino</strong></article>
-        </div>
+        <ul class="court-list" aria-label="Partidos judiciales de la provincia de León">
+          <li>León</li>
+          <li>Ponferrada</li>
+          <li>Astorga</li>
+          <li>La Bañeza</li>
+          <li>Cistierna</li>
+          <li>Sahagún</li>
+          <li>Villablino</li>
+        </ul>
         <p class="coverage-note">Indique el partido judicial, el órgano y la actuación que necesita para confirmar el encargo y recibir una propuesta adaptada.</p>
       </div>
     </section>
@@ -723,9 +702,9 @@
             </div>
           </details>
           <details>
-            <summary>¿El cálculo de la web es un presupuesto definitivo?</summary>
+            <summary>¿Cómo se prepara el presupuesto?</summary>
             <div class="faq-answer">
-              <p>No. La cifra es una referencia arancelaria máxima y orientativa conforme al arancel vigente. No es vinculante ni incluye IVA, suplidos o actuaciones adicionales. El presupuesto definitivo se prepara después de revisar las características concretas del asunto.</p>
+              <p>Reviso personalmente el tipo de procedimiento, el órgano judicial, la cuantía y las actuaciones necesarias. Después confirmo un presupuesto adaptado al asunto antes de aceptar el encargo.</p>
             </div>
           </details>
         </div>
@@ -737,7 +716,7 @@
         <div>
           <p class="eyebrow">Contacto</p>
           <h2>Presupuesto adaptado a su procedimiento.</h2>
-          <p class="section-copy contact-lead">Puede llamar directamente o completar la solicitud con el partido judicial, el procedimiento y su cuantía. El mensaje seguirá llegando directamente a mi correo.</p>
+          <p class="section-copy contact-lead">Puede llamar directamente o completar una solicitud breve con los datos esenciales del asunto. El mensaje llegará directamente a mi correo.</p>
           <ul class="contact-list">
             <li>
               <a href="tel:+34606375639">
@@ -762,11 +741,9 @@
 
         <div class="contact-form" id="presupuesto">
           <h3>Solicitar presupuesto</h3>
-          <p class="form-intro">Calcule una referencia arancelaria y envíeme los datos del procedimiento. Revisaré personalmente el asunto antes de confirmar cualquier importe.</p>
+          <p class="form-intro">Envíeme los datos esenciales del procedimiento y revisaré personalmente el asunto para responderle con un presupuesto adaptado.</p>
           <form action="https://formspree.io/f/mzzavjqn" method="post" id="contactForm">
             <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto desde la web de Antonio Aláez">
-            <input type="hidden" name="referencia_arancelaria" id="referenciaArancelaria" value="Pendiente de cálculo">
-            <input type="hidden" name="normativa_calculo" value="Real Decreto 434/2024, de 30 de abril, con la modificación del Real Decreto 913/2024">
             <div class="honeypot" aria-hidden="true">
               <label for="website">No complete este campo</label>
               <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
@@ -813,77 +790,24 @@
                 </select>
               </div>
               <div class="field full">
-                <label for="procedimiento">Tipo de procedimiento</label>
+                <label for="procedimiento">Área del procedimiento</label>
                 <select id="procedimiento" name="procedimiento" required>
                   <option value="">Seleccione una opción</option>
-                  <optgroup label="Procedimientos civiles">
-                    <option value="verbal">Juicio verbal de cuantía determinada</option>
-                    <option value="ordinario">Juicio ordinario de cuantía determinada</option>
-                    <option value="civil-indeterminada">Procedimiento civil de cuantía indeterminada</option>
-                    <option value="ordinario-indeterminado">Juicio ordinario de cuantía indeterminada</option>
-                    <option value="monitorio">Procedimiento monitorio — fase inicial</option>
-                    <option value="cambiario">Juicio cambiario — fase inicial</option>
-                    <option value="ejecucion">Ejecución de títulos — fase inicial</option>
-                    <option value="ejecucion-apremio">Ejecución de títulos con vía de apremio</option>
-                    <option value="apelacion-verbal">Apelación procedente de juicio verbal</option>
-                    <option value="apelacion-ordinario">Apelación procedente de juicio ordinario</option>
-                  </optgroup>
-                  <optgroup label="Orden penal — por actuación o fase">
-                    <option value="penal-instruccion">Instrucción penal</option>
-                    <option value="penal-archivo">Denuncia archivada o querella no admitida</option>
-                    <option value="penal-rapido-leve">Juicio rápido o juicio por delito leve — tramitación completa</option>
-                    <option value="penal-complejidad">Procedimiento penal de especial complejidad — si reúne los requisitos</option>
-                    <option value="penal-abreviado">Procedimiento abreviado — fase intermedia</option>
-                    <option value="penal-juicio-oral">Juicio oral ante Juzgado de lo Penal</option>
-                    <option value="penal-colegiado">Juicio oral ante órgano colegiado</option>
-                    <option value="penal-jurado">Procedimiento ante el Tribunal del Jurado</option>
-                    <option value="penal-recurso-reforma">Reforma, súplica o aclaración penal</option>
-                    <option value="penal-recurso-apelacion">Recurso de apelación penal</option>
-                    <option value="penal-casacion">Casación o revisión penal</option>
-                    <option value="penal-ejecutoria">Ejecutoria penal</option>
-                    <option value="penal-accion-civil-liquida">Acción civil penal con responsabilidad líquida — adicional</option>
-                    <option value="penal-accion-civil-no-liquida">Acción civil penal sin responsabilidad líquida — adicional</option>
-                    <option value="penal-menores">Procedimiento de menores — primera instancia</option>
-                    <option value="penal-menores-apelacion">Procedimiento de menores — apelación</option>
-                    <option value="penal-vigilancia">Expediente de vigilancia penitenciaria</option>
-                  </optgroup>
-                  <optgroup label="Orden contencioso-administrativo">
-                    <option value="contencioso-determinada">Primera instancia — cuantía determinada</option>
-                    <option value="contencioso-indeterminada-juzgado">Cuantía indeterminada — Juzgado de lo Contencioso-Administrativo</option>
-                    <option value="contencioso-indeterminada-superior">Cuantía indeterminada — Juzgado Central, Audiencia Nacional o TSJ</option>
-                    <option value="contencioso-indeterminada-ts">Cuantía indeterminada — Tribunal Supremo</option>
-                    <option value="contencioso-cautelar">Medida cautelar o solicitud de suspensión — sin oposición</option>
-                    <option value="contencioso-recurso-resolucion">Recurso contra resolución procesal o judicial</option>
-                    <option value="contencioso-recurso-auto">Recurso de apelación contra auto</option>
-                    <option value="contencioso-apelacion-determinada">Apelación contra sentencia — cuantía determinada</option>
-                    <option value="contencioso-apelacion-indeterminada">Apelación contra sentencia — cuantía indeterminada</option>
-                    <option value="contencioso-casacion-determinada">Casación — cuantía determinada</option>
-                    <option value="contencioso-casacion-indeterminada">Casación — cuantía indeterminada</option>
-                    <option value="contencioso-extraordinario">Otro recurso extraordinario contencioso</option>
-                    <option value="contencioso-ejecucion">Ejecución contenciosa — fase inicial</option>
-                    <option value="contencioso-ejecucion-apremio">Ejecución contenciosa con vía de apremio</option>
-                    <option value="administrativo-reclamacion">Reclamación o revisión ante una Administración — cuantía determinada</option>
-                    <option value="administrativo-indeterminada">Reclamación o revisión ante una Administración — cuantía indeterminada</option>
-                  </optgroup>
-                  <optgroup label="Familia y personas">
-                    <option value="familia-mutuo">Separación o divorcio de mutuo acuerdo</option>
-                    <option value="familia-contencioso">Proceso de familia contencioso</option>
-                    <option value="apoyo-filiacion">Medidas de apoyo, filiación o estado civil</option>
-                  </optgroup>
-                  <option value="otro">Otro procedimiento / requiere estudio</option>
+                  <option>Civil o mercantil</option>
+                  <option>Familia o capacidad</option>
+                  <option>Penal</option>
+                  <option>Contencioso-administrativo</option>
+                  <option>Social</option>
+                  <option>Ejecución</option>
+                  <option>Recurso</option>
+                  <option>Otro / por confirmar</option>
                 </select>
               </div>
-              <div class="field full is-hidden" id="cuantiaField">
-                <label for="cuantia">Cuantía del procedimiento</label>
+              <div class="field full">
+                <label for="cuantia">Cuantía aproximada <span aria-hidden="true">(opcional)</span></label>
                 <input id="cuantia" name="cuantia" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="Ej.: 18000">
-                <p class="field-hint" id="cuantiaHint">Indique el principal reclamado y, cuando proceda, los intereses vencidos incluidos en la base.</p>
+                <p class="field-hint">Puede dejarla en blanco si todavía no la conoce.</p>
               </div>
-              <div class="estimate-box" id="estimateBox" role="status" aria-live="polite">
-                <p class="estimate-label">Referencia arancelaria</p>
-                <p class="estimate-value" id="estimateValue">Seleccione el procedimiento</p>
-                <p class="estimate-detail" id="estimateDetail">La herramienta mostrará, cuando sea posible, el importe máximo orientativo antes de IVA.</p>
-              </div>
-              <p class="estimate-legal"><strong>Cálculo no vinculante.</strong> Es una aproximación basada en el Real Decreto 434/2024, modificado por el Real Decreto 913/2024. El arancel establece importes máximos y permite pactar cantidades inferiores. No incluye IVA, suplidos, incidencias, recursos ni actuaciones no seleccionadas. En penal se calcula únicamente la actuación o fase elegida y no se añade la acción civil salvo selección expresa. En contencioso, el órgano y la cuantía pueden modificar el resultado. El presupuesto definitivo se facilitará después de revisar el expediente. <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2024-8706" target="_blank" rel="noopener noreferrer">Consultar el arancel vigente en el BOE</a>.</p>
               <div class="field">
                 <label for="urgencia">Urgencia</label>
                 <select id="urgencia" name="urgencia">
@@ -957,143 +881,6 @@
       if (window.innerWidth > 960) closeMenu();
     });
 
-    const arancelScale = [
-      [60, 13.01], [120, 23.48], [180, 28.63], [240, 35.15], [300, 40.43],
-      [360, 46.94], [420, 57.28], [480, 63.36], [540, 66.93], [600, 71.39],
-      [1200, 89.25], [1800, 107.10], [2400, 120.49], [3000, 133.87],
-      [3600, 151.71], [4200, 169.56], [4800, 187.42], [5400, 205.27],
-      [6000, 223.11], [12000, 356.99], [24000, 535.50], [36000, 714.00],
-      [48000, 892.50], [60000, 1026.36], [90000, 1115.63], [120000, 1204.88],
-      [180000, 1294.12], [240000, 1383.37], [300000, 1472.62],
-      [360000, 1561.87], [420000, 1651.12], [480000, 1829.61],
-      [540000, 1927.80], [600000, 2079.53]
-    ];
-
-    const procedureRules = {
-      'verbal': { factor: 1, article: 'arts. 2 y 18 del arancel', amount: true },
-      'ordinario': { factor: 1.10, article: 'arts. 2 y 18.d del arancel (+10 %)', amount: true },
-      'civil-indeterminada': { fixed: 351, article: 'art. 3 del arancel' },
-      'ordinario-indeterminado': { fixed: 386.10, article: 'arts. 3 y 18.d del arancel (+10 %)' },
-      'monitorio': { fixed: 47.25, article: 'art. 24.1 del arancel; fase inicial' },
-      'cambiario': { factor: 1, article: 'arts. 2 y 25.1 del arancel; fase inicial', amount: true },
-      'ejecucion': { factor: 1, article: 'arts. 2, 39 y 40.1 del arancel; hasta el inicio del apremio', amount: true },
-      'ejecucion-apremio': { factor: 1.50, article: 'arts. 2, 39 y 40.1–2 del arancel', amount: true },
-      'apelacion-verbal': { factor: 1.20, article: 'arts. 2 y 50 del arancel (+20 %)', amount: true },
-      'apelacion-ordinario': { factor: 1.32, article: 'arts. 2, 18.d y 50 del arancel (+10 % y +20 %)', amount: true },
-      'penal-instruccion': { fixed: 45.14, article: 'art. 55.1 del arancel', note: 'Corresponde únicamente a la fase de instrucción.' },
-      'penal-archivo': { fixed: 15.04, article: 'art. 55.2 del arancel', note: 'Aplicable a la denuncia archivada o a la querella no admitida a trámite.' },
-      'penal-rapido-leve': { fixed: 55, article: 'art. 56 del arancel', note: 'Importe de la tramitación completa; no incluye la acción civil.' },
-      'penal-complejidad': { fixed: 150, article: 'art. 57 del arancel', note: 'Solo procede cuando concurren los requisitos de especial complejidad previstos en el arancel.' },
-      'penal-abreviado': { fixed: 45.14, article: 'art. 58 del arancel', note: 'Corresponde únicamente a la fase del procedimiento abreviado.' },
-      'penal-juicio-oral': { fixed: 45.14, article: 'art. 59 del arancel', note: 'Corresponde únicamente a la fase de juicio oral y no incluye la acción civil.' },
-      'penal-colegiado': { fixed: 45.14, article: 'art. 60.1 del arancel', note: 'Corresponde únicamente a esta fase del proceso.' },
-      'penal-jurado': { fixed: 89.10, article: 'art. 60.2 del arancel', note: 'Corresponde al procedimiento ante el Tribunal del Jurado.' },
-      'penal-recurso-reforma': { fixed: 20.06, article: 'art. 61.1 del arancel' },
-      'penal-recurso-apelacion': { fixed: 45.14, article: 'arts. 61.3 y 62 del arancel', note: 'La distribución entre interposición y oposición o vista depende de la tramitación.' },
-      'penal-casacion': { fixed: 200.64, article: 'art. 63 del arancel', note: 'Si el recurso no se admite, la referencia máxima prevista es 140,44 €.' },
-      'penal-ejecutoria': { fixed: 20.06, article: 'art. 65 del arancel', note: 'La ejecución de la responsabilidad civil se calcula conforme a las reglas civiles.' },
-      'penal-accion-civil-liquida': { factor: 0.50, article: 'arts. 2 y 66.1 del arancel (50 %)', amount: true, note: 'Importe adicional por la acción civil cuando existe condena líquida o acuerdo.' },
-      'penal-accion-civil-no-liquida': { factor: 0.25, article: 'arts. 2 y 66.2 del arancel (25 %)', amount: true, note: 'Importe adicional cuando no existe pronunciamiento sobre responsabilidad civil líquida.' },
-      'penal-menores': { fixed: 40.12, article: 'art. 67.1 del arancel', note: 'Referencia de primera instancia.' },
-      'penal-menores-apelacion': { fixed: 50.15, article: 'art. 67.2 del arancel' },
-      'penal-vigilancia': { fixed: 52.65, article: 'art. 68 del arancel' },
-      'contencioso-determinada': { factor: 1, article: 'arts. 2 y 69.1 del arancel', amount: true },
-      'contencioso-indeterminada-juzgado': { fixed: 351.11, article: 'art. 69.2.a del arancel' },
-      'contencioso-indeterminada-superior': { fixed: 451.41, article: 'art. 69.2.b del arancel', note: 'Aplicable ante Juzgados Centrales, Audiencia Nacional o Tribunales Superiores de Justicia.' },
-      'contencioso-indeterminada-ts': { fixed: 401.27, article: 'art. 69.2.c del arancel' },
-      'contencioso-cautelar': { fixed: 50.15, article: 'art. 71.1 del arancel', note: 'No incluye la oposición a la medida cautelar.' },
-      'contencioso-recurso-resolucion': { fixed: 35.10, article: 'art. 73 del arancel' },
-      'contencioso-recurso-auto': { fixed: 55, article: 'art. 74.4 del arancel' },
-      'contencioso-apelacion-determinada': { factor: 1, article: 'arts. 2 y 74.1 del arancel', amount: true, note: 'La distribución por fases depende de la intervención realizada.' },
-      'contencioso-apelacion-indeterminada': { fixed: 351, article: 'arts. 3 y 74.1 del arancel', note: 'La distribución por fases depende de la intervención realizada.' },
-      'contencioso-casacion-determinada': { factor: 1, article: 'arts. 2 y 74.2 del arancel', amount: true, note: 'La distribución por fases depende de la intervención realizada.' },
-      'contencioso-casacion-indeterminada': { fixed: 351, article: 'arts. 3 y 74.2 del arancel', note: 'La distribución por fases depende de la intervención realizada.' },
-      'contencioso-extraordinario': { fixed: 54, article: 'art. 75 del arancel' },
-      'contencioso-ejecucion': { factor: 1, article: 'arts. 2, 39, 40.1 y 76 del arancel; hasta el inicio del apremio', amount: true },
-      'contencioso-ejecucion-apremio': { factor: 1.50, article: 'arts. 2, 39, 40 y 76 del arancel', amount: true },
-      'administrativo-reclamacion': { factor: 0.50, article: 'arts. 2 y 77 del arancel (reducción del 50 %)', amount: true },
-      'administrativo-indeterminada': { fixed: 175, article: 'art. 77 del arancel' },
-      'familia-mutuo': { fixed: 70.21, article: 'art. 22.1.a del arancel; sin medidas económicas' },
-      'familia-contencioso': { fixed: 100.31, article: 'art. 22.3.a del arancel; sin medidas económicas' },
-      'apoyo-filiacion': { fixed: 120.37, article: 'art. 21.1 del arancel' }
-    };
-
-    const procedureSelect = document.querySelector('#procedimiento');
-    const amountField = document.querySelector('#cuantiaField');
-    const amountInput = document.querySelector('#cuantia');
-    const amountHint = document.querySelector('#cuantiaHint');
-    const estimateValue = document.querySelector('#estimateValue');
-    const estimateDetail = document.querySelector('#estimateDetail');
-    const estimateHidden = document.querySelector('#referenciaArancelaria');
-
-    const euroFormat = new Intl.NumberFormat('es-ES', {
-      style: 'currency',
-      currency: 'EUR',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-
-    function scaleMaximum(amount) {
-      if (amount <= 600000) {
-        const bracket = arancelScale.find(([limit]) => amount <= limit);
-        return bracket ? bracket[1] : arancelScale[arancelScale.length - 1][1];
-      }
-      const additionalFractions = Math.ceil((amount - 600000) / 6000);
-      return 2079.53 + (additionalFractions * 15.17);
-    }
-
-    function updateEstimate() {
-      const selected = procedureSelect.value;
-      const rule = procedureRules[selected];
-      const needsAmount = Boolean(rule && rule.amount);
-
-      amountField.classList.toggle('is-hidden', !needsAmount);
-      amountInput.required = needsAmount;
-      amountInput.disabled = !needsAmount;
-
-      if (selected === 'ejecucion' || selected === 'ejecucion-apremio' || selected === 'cambiario' || selected.startsWith('contencioso-ejecucion')) {
-        amountHint.textContent = 'Indique la suma del principal, intereses y costas por la que se despacha ejecución.';
-      } else if (selected.startsWith('penal-accion-civil')) {
-        amountHint.textContent = 'Indique el importe de la responsabilidad civil que deba tomarse como base del cálculo.';
-      } else if (selected.startsWith('contencioso-') || selected.startsWith('administrativo-')) {
-        amountHint.textContent = 'Indique la cuantía litigiosa conforme a las reglas aplicables del orden contencioso-administrativo.';
-      } else {
-        amountHint.textContent = 'Indique el principal reclamado y, cuando proceda, los intereses vencidos incluidos en la base.';
-      }
-
-      if (!selected) {
-        estimateValue.textContent = 'Seleccione el procedimiento';
-        estimateDetail.textContent = 'La herramienta mostrará, cuando sea posible, el importe máximo orientativo antes de IVA.';
-        estimateHidden.value = 'Pendiente de cálculo';
-        return;
-      }
-
-      if (selected === 'otro') {
-        estimateValue.textContent = 'Requiere revisión individual';
-        estimateDetail.textContent = 'Envíe los datos del asunto y prepararé una propuesta personalizada.';
-        estimateHidden.value = 'Procedimiento no calculable automáticamente; requiere revisión';
-        return;
-      }
-
-      if (needsAmount && (!amountInput.value || Number(amountInput.value) <= 0)) {
-        estimateValue.textContent = 'Introduzca la cuantía';
-        estimateDetail.textContent = 'La referencia se actualizará automáticamente al indicar la cuantía del procedimiento.';
-        estimateHidden.value = 'Pendiente de indicar cuantía';
-        return;
-      }
-
-      const rawAmount = rule.fixed ?? (scaleMaximum(Number(amountInput.value)) * rule.factor);
-      const maximum = Math.min(rawAmount, 75000);
-      const formatted = euroFormat.format(maximum);
-      estimateValue.textContent = `${formatted} + IVA`;
-      const additionalNote = rule.note ? ` ${rule.note}` : '';
-      estimateDetail.textContent = `Importe máximo orientativo calculado conforme a ${rule.article}.${additionalNote} No constituye un presupuesto definitivo.`;
-      estimateHidden.value = `${formatted} + IVA — máximo orientativo, no vinculante — ${rule.article}${additionalNote}`;
-    }
-
-    procedureSelect.addEventListener('change', updateEstimate);
-    amountInput.addEventListener('input', updateEstimate);
-    updateEstimate();
   </script>
 </body>
 </html>
