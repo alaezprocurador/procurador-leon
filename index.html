@@ -1,781 +1,814 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antonio Aláez Gutiérrez - Procurador de los Tribunales en León</title>
-    <meta name="description" content="Procurador de los Tribunales en León con más de 20 años de experiencia. Servicios jurídicos profesionales en toda la provincia de León.">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1e3a8a;
-            --secondary-color: #3b82f6;
-            --accent-color: #f59e0b;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --background-light: #f8fafc;
-            --white: #ffffff;
-            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: var(--gradient);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .colegiado-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 12px 24px;
-            border-radius: 50px;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: var(--background-light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .credentials {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .credential {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background: var(--background-light);
-            border-radius: 10px;
-        }
-
-        .credential i {
-            color: var(--accent-color);
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .justice-illustration {
-            width: 100%;
-            height: 400px;
-            background: var(--gradient);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 8rem;
-            opacity: 0.8;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: var(--gradient);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .contact-info {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateX(10px);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-right: 15px;
-            width: 30px;
-        }
-
-        .contact-details h4 {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .contact-details p {
-            opacity: 0.8;
-            margin: 0;
-        }
-
-        .contact-details a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .contact-details a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .submit-btn {
-            background: var(--accent-color);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .credentials {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Scroll Smooth */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: var(--accent-color);
-            animation: spin 1s ease-in-out infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antonio Aláez Gutiérrez | Procurador de los Tribunales en León</title>
+  <meta name="description" content="Antonio Aláez Gutiérrez, procurador de los Tribunales colegiado nº 299 en León, con más de 15 años de experiencia. Representación procesal y seguimiento en toda la provincia.">
+  <meta name="theme-color" content="#0b1f33">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://alaezprocurador.github.io/procurador-leon/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Antonio Aláez | Procurador de los Tribunales en León">
+  <meta property="og:description" content="Representación procesal ágil, rigurosa y cercana en toda la provincia de León.">
+  <meta property="og:url" content="https://alaezprocurador.github.io/procurador-leon/">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #102033;
+      --navy: #0b1f33;
+      --navy-soft: #173650;
+      --blue: #285b7d;
+      --gold: #b8874c;
+      --gold-light: #e9d5b9;
+      --paper: #f7f4ee;
+      --white: #ffffff;
+      --muted: #66717e;
+      --line: #dfe3e5;
+      --success: #315f55;
+      --shadow-sm: 0 8px 24px rgba(11, 31, 51, .08);
+      --shadow-lg: 0 28px 70px rgba(4, 19, 33, .18);
+      --radius: 20px;
+      --serif: "Libre Baskerville", Georgia, serif;
+      --sans: "DM Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: var(--sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    a { color: inherit; }
+    ::selection { background: var(--gold-light); color: var(--navy); }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 2000;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--navy);
+      transform: translateY(-150%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+    .eyebrow.light { color: var(--gold-light); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: var(--serif); line-height: 1.16; letter-spacing: -.025em; }
+    h1 { max-width: 820px; margin-bottom: 24px; font-size: clamp(2.65rem, 6vw, 5.25rem); }
+    h2 { margin-bottom: 18px; font-size: clamp(2rem, 4vw, 3.25rem); }
+    h3 { line-height: 1.3; }
+    .section-copy { max-width: 680px; color: var(--muted); font-size: 1.08rem; }
+    section { scroll-margin-top: 90px; }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--navy); background: var(--gold-light); }
+    .button-primary:hover { background: #f4e4cb; }
+    .button-secondary { color: var(--white); border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.06); }
+    .button-secondary:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.1); }
+    .button-dark { color: var(--white); background: var(--navy); }
+    .button-dark:hover { background: var(--navy-soft); }
+    .icon { width: 20px; height: 20px; flex: 0 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      color: var(--white);
+      background: rgba(11, 31, 51, .94);
+      backdrop-filter: blur(14px);
+    }
+    .navbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; color: var(--white); text-decoration: none; }
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233,213,185,.65);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+    .brand-text { display: grid; line-height: 1.15; }
+    .brand-text strong { font-family: var(--serif); font-size: .98rem; }
+    .brand-text span { margin-top: 4px; color: rgba(255,255,255,.68); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 26px; margin: 0; padding: 0; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .92rem; font-weight: 600; }
+    .nav-links a:not(.nav-cta):hover { color: var(--white); }
+    .nav-links .nav-cta { padding: 10px 15px; border: 1px solid rgba(233,213,185,.5); border-radius: 8px; color: var(--gold-light); }
+    .nav-links .nav-cta:hover { border-color: var(--gold-light); background: rgba(233,213,185,.08); }
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 8px;
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+    }
+    .menu-toggle svg { width: 24px; height: 24px; margin: auto; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to right, black, transparent 68%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      top: -290px;
+      right: -170px;
+      border: 1px solid rgba(233,213,185,.24);
+      border-radius: 50%;
+      box-shadow: 0 0 0 90px rgba(233,213,185,.025), 0 0 0 180px rgba(233,213,185,.02);
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      min-height: 700px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr);
+      align-items: center;
+      gap: clamp(50px, 7vw, 100px);
+      padding-block: 86px 96px;
+    }
+    .hero .eyebrow { color: var(--gold-light); }
+    .hero-intro { max-width: 700px; margin-bottom: 34px; color: rgba(255,255,255,.77); font-size: clamp(1.08rem, 2vw, 1.26rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .credential-line { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 35px; color: rgba(255,255,255,.66); font-size: .88rem; }
+    .credential-line span { display: inline-flex; align-items: center; gap: 8px; }
+    .credential-line span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+    .case-card {
+      position: relative;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 2px 30px 2px 30px;
+      background: rgba(255,255,255,.075);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(16px);
+    }
+    .case-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(233,213,185,.12);
+      border-radius: 1px 20px 1px 20px;
+      pointer-events: none;
+    }
+    .card-kicker { margin-bottom: 12px; color: var(--gold-light); font-size: .74rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .case-card h2 { margin-bottom: 28px; font-size: clamp(1.7rem, 3vw, 2.35rem); }
+    .control-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .control-list li { display: flex; gap: 14px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.8); }
+    .check {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--gold-light);
+      background: rgba(233,213,185,.1);
+    }
+    .check svg { width: 14px; height: 14px; }
+    .card-footer { display: flex; justify-content: space-between; gap: 16px; padding-top: 24px; color: rgba(255,255,255,.52); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .trust-bar { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .trust-item { min-height: 132px; display: flex; align-items: center; gap: 17px; padding: 28px 36px; border-right: 1px solid var(--line); }
+    .trust-item:first-child { padding-left: 0; }
+    .trust-item:last-child { padding-right: 0; border-right: 0; }
+    .trust-number { color: var(--gold); font-family: var(--serif); font-size: 1.9rem; }
+    .trust-item strong { display: block; margin-bottom: 2px; font-size: .97rem; }
+    .trust-item span:last-child { display: block; color: var(--muted); font-size: .86rem; }
+
+    .services { padding: 110px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 52px; }
+    .section-head > div:first-child { max-width: 680px; }
+    .section-head .section-copy { max-width: 430px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .service-card { min-height: 290px; padding: clamp(30px, 5vw, 48px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); transition: background .25s ease, transform .25s ease, box-shadow .25s ease; }
+    .service-card:hover { position: relative; z-index: 1; background: var(--paper); box-shadow: var(--shadow-sm); transform: translateY(-4px); }
+    .service-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; }
+    .service-index { color: var(--gold); font-family: var(--serif); font-size: 1.4rem; }
+    .service-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; color: var(--blue); background: #edf3f6; }
+    .service-icon svg { width: 21px; height: 21px; }
+    .service-card h3 { margin-bottom: 12px; color: var(--navy); font-family: var(--serif); font-size: 1.35rem; }
+    .service-card p { margin-bottom: 0; color: var(--muted); }
+
+    .approach { padding: 105px 0; background: var(--paper); }
+    .approach-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(55px, 9vw, 120px); align-items: start; }
+    .approach-copy { position: sticky; top: 120px; }
+    .approach-copy .section-copy { margin-bottom: 28px; }
+    .steps { counter-reset: step; border-top: 1px solid #cfd5d7; }
+    .step { counter-increment: step; display: grid; grid-template-columns: 66px 1fr; gap: 20px; padding: 34px 0; border-bottom: 1px solid #cfd5d7; }
+    .step::before { content: "0" counter(step); color: var(--gold); font-family: var(--serif); font-size: 1.35rem; }
+    .step h3 { margin-bottom: 9px; color: var(--navy); font-family: var(--serif); font-size: 1.25rem; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .profile { overflow: hidden; color: var(--white); background: var(--navy); }
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .profile-visual {
+      position: relative;
+      min-height: 600px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-right: 1px solid rgba(255,255,255,.12);
+      background: var(--navy-soft);
+    }
+    .profile-visual::before, .profile-visual::after { content: ""; position: absolute; border: 1px solid rgba(233,213,185,.2); border-radius: 50%; }
+    .profile-visual::before { width: 460px; height: 460px; }
+    .profile-visual::after { width: 330px; height: 330px; }
+    .monogram {
+      position: relative;
+      z-index: 1;
+      width: 220px;
+      height: 220px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233,213,185,.55);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 4.8rem;
+      letter-spacing: -.08em;
+      box-shadow: 0 0 0 18px rgba(233,213,185,.035);
+    }
+    .profile-content { display: flex; flex-direction: column; justify-content: center; padding: clamp(60px, 8vw, 105px); }
+    .profile-content p { max-width: 600px; color: rgba(255,255,255,.7); font-size: 1.05rem; }
+    .profile-facts { display: grid; gap: 0; margin: 32px 0 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.14); }
+    .profile-facts li { display: flex; justify-content: space-between; gap: 20px; padding: 17px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+    .profile-facts span { color: rgba(255,255,255,.55); }
+    .profile-facts strong { text-align: right; font-weight: 600; }
+
+    .faq { padding: 105px 0; background: var(--paper); }
+    .faq-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(50px, 9vw, 110px); align-items: start; }
+    .faq-intro { position: sticky; top: 120px; }
+    .faq-intro .section-copy { margin-bottom: 28px; }
+    .official-link { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .official-link:hover { text-decoration: underline; }
+    .official-link svg { width: 18px; height: 18px; }
+    .faq-list { border-top: 1px solid #cfd5d7; }
+    .faq-list details { border-bottom: 1px solid #cfd5d7; }
+    .faq-list summary { position: relative; padding: 27px 46px 27px 0; color: var(--navy); font-family: var(--serif); font-size: 1.12rem; font-weight: 700; cursor: pointer; list-style: none; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; position: absolute; top: 26px; right: 4px; color: var(--gold); font-family: var(--sans); font-size: 1.45rem; font-weight: 400; line-height: 1; }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 45px 25px 0; color: var(--muted); }
+    .faq-answer p { margin-bottom: 12px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-answer a { color: var(--blue); font-weight: 700; }
+
+    .contact { padding: 110px 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(50px, 9vw, 110px); align-items: start; }
+    .contact-lead { margin-bottom: 38px; }
+    .contact-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .contact-list a, .contact-list .contact-static { display: flex; gap: 16px; align-items: flex-start; padding: 18px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; transition: border-color .2s ease, box-shadow .2s ease; }
+    .contact-list a:hover { border-color: #b9c5ca; box-shadow: var(--shadow-sm); }
+    .contact-list .icon-wrap { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 50%; color: var(--blue); background: #edf3f6; }
+    .contact-list svg { width: 18px; height: 18px; }
+    .contact-list small { display: block; margin-bottom: 2px; color: var(--muted); font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .contact-list strong { color: var(--navy); font-weight: 600; }
+
+    .contact-form { padding: clamp(28px, 5vw, 48px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow-sm); }
+    .contact-form h3 { margin-bottom: 8px; color: var(--navy); font-family: var(--serif); font-size: 1.55rem; }
+    .form-intro { margin-bottom: 30px; color: var(--muted); font-size: .93rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: .85rem; font-weight: 700; }
+    .field input, .field textarea {
+      width: 100%;
+      border: 1px solid #cfd5d7;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .field input { height: 50px; padding: 0 14px; }
+    .field textarea { min-height: 142px; padding: 13px 14px; resize: vertical; }
+    .field input:focus, .field textarea:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(40,91,125,.13); }
+    .field input::placeholder, .field textarea::placeholder { color: #929aa1; }
+    .form-note { margin: 18px 0; color: var(--muted); font-size: .8rem; }
+    .submit-button { width: 100%; border: 0; cursor: pointer; }
+    .honeypot { position: absolute; left: -9999px; }
+
+    .site-footer { padding: 42px 0 24px; color: rgba(255,255,255,.7); background: #071624; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .footer-top .brand { flex: 0 0 auto; }
+    .footer-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px 24px; margin: 0; padding: 0; list-style: none; }
+    .footer-nav a { color: rgba(255,255,255,.68); text-decoration: none; font-size: .86rem; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 24px; padding-top: 22px; font-size: .78rem; }
+    .footer-bottom p { margin: 0; }
+
+    .mobile-call {
+      position: fixed;
+      z-index: 900;
+      right: 18px;
+      bottom: 18px;
+      display: none;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 17px;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--gold-light);
+      box-shadow: 0 12px 35px rgba(7,22,36,.24);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 960px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed;
+        inset: 79px 0 auto;
+        display: grid;
+        gap: 0;
+        padding: 18px 20px 28px;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+        background: var(--navy);
+        transform: translateY(-130%);
+        visibility: hidden;
+        opacity: 0;
+        transition: transform .25s ease, opacity .25s ease, visibility .25s;
+      }
+      .nav-links.open { transform: translateY(0); visibility: visible; opacity: 1; }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,.1); }
+      .nav-links li:last-child { border: 0; }
+      .nav-links a, .nav-links .nav-cta { display: block; padding: 15px 4px; border: 0; border-radius: 0; }
+      .hero-grid { grid-template-columns: 1fr; min-height: auto; padding-block: 76px 84px; }
+      .case-card { max-width: 620px; }
+      .section-head { display: block; }
+      .section-head .section-copy { max-width: 680px; }
+      .approach-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; }
+      .approach-copy, .faq-intro { position: static; }
+      .profile-grid { grid-template-columns: .75fr 1.25fr; }
+      .profile-visual { min-height: 520px; }
+      .profile-content { padding-inline: 50px; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .navbar { min-height: 72px; }
+      .brand-text span { display: none; }
+      .nav-links { inset: 73px 0 auto; }
+      .hero::after { right: -410px; }
+      .hero-grid { padding-block: 62px 70px; gap: 52px; }
+      .hero-actions { display: grid; }
+      .hero-actions .button { width: 100%; }
+      .credential-line { display: grid; gap: 9px; }
+      .case-card { padding: 27px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-item, .trust-item:first-child, .trust-item:last-child { min-height: auto; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .trust-item:last-child { border-bottom: 0; }
+      .services, .approach, .faq, .contact { padding: 78px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; }
+      .service-top { margin-bottom: 32px; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .profile-visual { min-height: 390px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .profile-visual::before { width: 350px; height: 350px; }
+      .profile-visual::after { width: 260px; height: 260px; }
+      .monogram { width: 170px; height: 170px; font-size: 3.8rem; }
+      .profile-content { padding: 62px 24px; }
+      .profile-facts li { display: grid; gap: 4px; }
+      .profile-facts strong { text-align: left; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-top, .footer-bottom { display: grid; }
+      .footer-nav { justify-content: flex-start; }
+      .mobile-call { display: inline-flex; }
+      .site-footer { padding-bottom: 88px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Antonio Aláez Gutiérrez — Procurador de los Tribunales",
+    "url": "https://alaezprocurador.github.io/procurador-leon/",
+    "telephone": "+34 606 375 639",
+    "description": "Procurador de los Tribunales en León con más de 15 años de experiencia.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Los Aluches, 19, 5º G",
+      "postalCode": "24005",
+      "addressLocality": "León",
+      "addressRegion": "Castilla y León",
+      "addressCountry": "ES"
+    },
+    "areaServed": "Provincia de León"
+  }
+  </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="logo">
-                <i class="fas fa-balance-scale"></i>
-                Antonio Aláez
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <button class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!-- Hero Section -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Antonio Aláez, inicio">
+        <span class="brand-mark" aria-hidden="true">AA</span>
+        <span class="brand-text">
+          <strong>Antonio Aláez</strong>
+          <span>Procurador de los Tribunales</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="main-menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#metodo">Cómo trabajo</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+        <li><a class="nav-cta" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
     <section class="hero" id="inicio">
-        <div class="container">
-            <div class="hero-content fade-in-up">
-                <div class="colegiado-badge">
-                    <i class="fas fa-certificate"></i> Colegiado nº 299 - Ilustre Colegio de Procuradores de León
-                </div>
-                <h1>Antonio Aláez Gutiérrez</h1>
-                <p class="subtitle">Procurador de los Tribunales en León</p>
-                <p style="margin-bottom: 2rem; opacity: 0.9;">Licenciado en Derecho por la Universidad de León<br>Más de 15 años de experiencia profesional</p>
-                <a href="#contacto" class="cta-button">
-                    <i class="fas fa-phone"></i> Contactar Ahora
-                </a>
-            </div>
+      <div class="hero-grid container">
+        <div>
+          <p class="eyebrow">Procurador de los Tribunales · León</p>
+          <h1>Representación procesal clara, ágil y cercana.</h1>
+          <p class="hero-intro">Atención directa y seguimiento riguroso de cada procedimiento en toda la provincia de León, con información comprensible y puntual en cada fase.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:+34606375639">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.6 10.8c1.8 3.5 3.2 4.9 6.7 6.7l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.6 21.3 2.7 13.4 2.7 3.6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.7 3.8.1.4 0 .8-.2 1.1l-2.1 2.3Z"/></svg>
+              Llamar al 606 375 639
+            </a>
+            <a class="button button-secondary" href="#contacto">Solicitar contacto</a>
+          </div>
+          <div class="credential-line" aria-label="Credenciales profesionales">
+            <span>Colegiado nº 299</span>
+            <span>Licenciado en Derecho por la ULE</span>
+          </div>
         </div>
+
+        <aside class="case-card" aria-label="Compromisos del servicio">
+          <p class="card-kicker">Su asunto, bajo control</p>
+          <h2>Rigor en la gestión. Cercanía en el trato.</h2>
+          <ul class="control-list">
+            <li>
+              <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg></span>
+              Control de plazos y señalamientos
+            </li>
+            <li>
+              <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg></span>
+              Comunicación puntual de resoluciones
+            </li>
+            <li>
+              <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg></span>
+              Contacto directo y atención personalizada
+            </li>
+          </ul>
+          <div class="card-footer"><span>Procura</span><span>León</span></div>
+        </aside>
+      </div>
     </section>
 
-    <!-- Services Section -->
+    <div class="trust-bar" aria-label="Información destacada">
+      <div class="trust-grid container">
+        <div class="trust-item">
+          <span class="trust-number" aria-hidden="true">01</span>
+          <div><strong>Ámbito provincial</strong><span>Actuación en toda la provincia de León</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number" aria-hidden="true">15+</span>
+          <div><strong>Años de experiencia</strong><span>Ejercicio profesional de la procura</span></div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-number" aria-hidden="true">03</span>
+          <div><strong>Costes transparentes</strong><span>Presupuesto adaptado a cada asunto</span></div>
+        </div>
+      </div>
+    </div>
+
     <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Mis Servicios</h2>
-                <p>Ofrezco servicios jurídicos profesionales con garantías de calidad, eficiencia y total confidencialidad en toda la provincia de León.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in-up">
-                    <div class="service-icon">
-                        <i class="fas fa-euro-sign"></i>
-                    </div>
-                    <h3>Precios Competitivos</h3>
-                    <p>Presupuestos económicos y ajustados en función de la clase de asunto. Transparencia total en todos los costes sin sorpresas.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <div class="service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Servicio Ágil</h3>
-                    <p>Gestión eficiente de todos los trámites, informando puntualmente de las novedades que se vayan produciendo en su expediente.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Máxima Confianza</h3>
-                    <p>Garantizo responsabilidad en la gestión, honradez profesional y absoluta confidencialidad en todos los asuntos tratados.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Servicios de procura</p>
+            <h2>Gestión procesal con precisión y respuesta rápida.</h2>
+          </div>
+          <p class="section-copy">Un servicio profesional orientado a que cada actuación se tramite a tiempo y cada novedad llegue de forma clara.</p>
         </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-index">01</span>
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21h16M6 18V9m4 9V9m4 9V9m4 9V9M3 9h18L12 3 3 9Z"/></svg></span>
+            </div>
+            <h3>Representación procesal</h3>
+            <p>Representación ante juzgados y tribunales, con gestión ordenada de escritos, notificaciones, plazos y señalamientos.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-index">02</span>
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3h8l4 4v14H4V3h4Zm0 0v5h8V3M8 13h8M8 17h6"/></svg></span>
+            </div>
+            <h3>Seguimiento del procedimiento</h3>
+            <p>Control continuo del expediente y comunicación puntual de las resoluciones y actuaciones relevantes.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-index">03</span>
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0-13v5l3 2"/></svg></span>
+            </div>
+            <h3>Diligencias y gestiones</h3>
+            <p>Tramitación de actos de comunicación, mandamientos, oficios y demás gestiones propias de la procura.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-top">
+              <span class="service-index">04</span>
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10-1a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM1 21v-3a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v3m1-7h2a4 4 0 0 1 4 4v3"/></svg></span>
+            </div>
+            <h3>Colaboración con despachos</h3>
+            <p>Coordinación directa con letrados para facilitar la tramitación, reducir incidencias y mantener el asunto actualizado.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="sobre-mi">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Experiencia y Profesionalidad</h2>
-                    <p>Como Procurador de los Tribunales colegiado en León, mi compromiso es brindar un servicio jurídico de excelencia, basado en la experiencia, la eficiencia y la confianza mutua.</p>
-                    <p>Mi despacho se caracteriza por ofrecer una atención personalizada y un seguimiento exhaustivo de cada caso, garantizando que mis clientes estén siempre informados del estado de sus asuntos.</p>
-                    
-                    <div class="credentials">
-                        <div class="credential">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Licenciado en Derecho ULE</span>
-                        </div>
-                        <div class="credential">
-                            <i class="fas fa-certificate"></i>
-                            <span>Colegiado nº 299</span>
-                        </div>
-                        <div class="credential">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Toda la provincia de León</span>
-                        </div>
-                        <div class="credential">
-                            <i class="fas fa-clock"></i>
-                            <span>+12 años de experiencia</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="justice-illustration">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                </div>
-            </div>
+    <section class="approach" id="metodo">
+      <div class="approach-grid container">
+        <div class="approach-copy">
+          <p class="eyebrow">Cómo trabajo</p>
+          <h2>Un proceso sencillo desde el primer contacto.</h2>
+          <p class="section-copy">Cada asunto comienza con una valoración clara de las necesidades y continúa con información constante durante toda la tramitación.</p>
+          <a class="button button-dark" href="#contacto">Explicar mi asunto</a>
         </div>
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Primer contacto</h3>
+              <p>Explíqueme brevemente el procedimiento y la actuación que necesita. Revisaremos el encargo y la documentación necesaria.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Propuesta clara</h3>
+              <p>Recibirá una respuesta directa sobre la gestión, el ámbito de actuación y el presupuesto aplicable al asunto.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Tramitación y seguimiento</h3>
+              <p>Gestionaré las actuaciones procesales y le mantendré informado de las novedades relevantes del expediente.</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
+    <section class="profile" id="sobre-mi">
+      <div class="profile-grid">
+        <div class="profile-visual" aria-hidden="true">
+          <div class="monogram">AA</div>
+        </div>
+        <div class="profile-content">
+          <p class="eyebrow light">Perfil profesional</p>
+          <h2>Antonio Aláez Gutiérrez</h2>
+          <p>Procurador de los Tribunales colegiado en León. Mi forma de trabajar combina rigor procesal, atención personalizada y una comunicación clara para que cada cliente conozca el estado de su asunto.</p>
+          <ul class="profile-facts">
+            <li><span>Colegiación</span><strong>Nº 299 · Ilustre Colegio de Procuradores de León</strong></li>
+            <li><span>Formación</span><strong>Licenciado en Derecho · Universidad de León</strong></li>
+            <li><span>Ámbito</span><strong>Toda la provincia de León</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="preguntas">
+      <div class="faq-grid container">
+        <div class="faq-intro">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>La procura, explicada con claridad.</h2>
+          <p class="section-copy">Respuestas breves a las dudas más habituales antes de iniciar un procedimiento o designar procurador.</p>
+          <a class="official-link" href="https://www.administraciondejusticia.gob.es/carpeta-justicia" target="_blank" rel="noopener noreferrer">
+            Acceder a Carpeta Justicia
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
+          </a>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>¿Qué hace un procurador de los Tribunales?</summary>
+            <div class="faq-answer">
+              <p>Representa procesalmente a su cliente ante los juzgados y tribunales, recibe las notificaciones, controla los trámites y mantiene informados al cliente y a su abogado.</p>
+              <p><a href="https://www.cgpe.es/que-es-un-procurador/" target="_blank" rel="noopener noreferrer">Más información en el Consejo General de Procuradores</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>¿Cómo se otorga poder al procurador?</summary>
+            <div class="faq-answer">
+              <p>Puede otorgarse poder notarial o poder apud acta. El apud acta es gratuito y puede realizarse ante la oficina judicial o electrónicamente mediante el servicio oficial de la Administración de Justicia.</p>
+              <p><a href="https://www.administraciondejusticia.gob.es/-/servicio-apoderamiento-apud-acta" target="_blank" rel="noopener noreferrer">Ir al servicio oficial de Apoderamiento Apud Acta</a>.</p>
+            </div>
+          </details>
+          <details>
+            <summary>¿En qué territorio presta servicio?</summary>
+            <div class="faq-answer">
+              <p>Presto servicio de procura en toda la provincia de León. Puede indicarme el juzgado y el tipo de procedimiento para confirmar la actuación necesaria.</p>
+            </div>
+          </details>
+          <details>
+            <summary>¿Cómo puedo solicitar presupuesto?</summary>
+            <div class="faq-answer">
+              <p>Puede llamar directamente o completar el formulario de contacto. El presupuesto se adapta a la clase de procedimiento y a las actuaciones que requiera el asunto.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contacto">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info-section">
-                    <h2>Contacto</h2>
-                    <p>No dude en ponerse en contacto conmigo para cualquier consulta jurídica. Estaré encantado de atenderle y ofrecerle el mejor servicio profesional.</p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div class="contact-details">
-                                <h4>Teléfono Móvil</h4>
-                                <p><a href="tel:+34606375639">606 375 639</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-details">
-                                <h4>Teléfono Fijo</h4>
-                                <p><a href="tel:+34987700644">987 700 644</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-details">
-                                <h4>Dirección</h4>
-                                <p>Calle Los Aluches, Nº 19, 5ºG<br>24005 León</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-gavel"></i>
-                            <div class="contact-details">
-                                <h4>Ámbito de Actuación</h4>
-                                <p>Toda la provincia de León</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Envíeme un Mensaje</h3>
-                    <form action="https://formspree.io/f/mzzavjqn" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Su email</label>
-                            <input type="email" id="email" name="email" placeholder="su.email@ejemplo.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Su teléfono">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Su mensaje</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Describa su consulta jurídica..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            Enviar Mensaje
-                            <span class="loading" style="display: none;"></span>
-                        </button>
-                    </form>
-                </div>
+      <div class="contact-grid container">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Hablemos de su procedimiento.</h2>
+          <p class="section-copy contact-lead">Puede llamar directamente o enviarme una consulta breve mediante el formulario. Le responderé personalmente.</p>
+          <ul class="contact-list">
+            <li>
+              <a href="tel:+34606375639">
+                <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.8 3.5 3.2 4.9 6.7 6.7l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.6 21.3 2.7 13.4 2.7 3.6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.7 3.8.1.4 0 .8-.2 1.1l-2.1 2.3Z"/></svg></span>
+                <span><small>Teléfono móvil</small><strong>606 375 639</strong></span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+34987700644">
+                <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.8 3.5 3.2 4.9 6.7 6.7l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.6 21.3 2.7 13.4 2.7 3.6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.7 3.8.1.4 0 .8-.2 1.1l-2.1 2.3Z"/></svg></span>
+                <span><small>Teléfono fijo</small><strong>987 700 644</strong></span>
+              </a>
+            </li>
+            <li>
+              <div class="contact-static">
+                <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+                <span><small>Despacho</small><strong>Calle Los Aluches, 19, 5º G · 24005 León</strong></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form">
+          <h3>Solicitar contacto</h3>
+          <p class="form-intro">Indique sus datos y el motivo de la consulta. El mensaje llegará directamente a mi correo.</p>
+          <form action="https://formspree.io/f/mzzavjqn" method="post" id="contactForm">
+            <input type="hidden" name="_subject" value="Nueva consulta desde la web de Antonio Aláez">
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">No complete este campo</label>
+              <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
             </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre completo</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Nombre y apellidos" required maxlength="100">
+              </div>
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="600 000 000" maxlength="30">
+              </div>
+              <div class="field full">
+                <label for="email">Correo electrónico</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.es" required maxlength="150">
+              </div>
+              <div class="field full">
+                <label for="message">Motivo de la consulta</label>
+                <textarea id="message" name="message" placeholder="Explique brevemente qué gestión necesita" required maxlength="2000"></textarea>
+              </div>
+            </div>
+            <p class="form-note">No envíe documentación confidencial mediante este formulario. Los datos se utilizarán únicamente para responder a su consulta.</p>
+            <button class="button button-dark submit-button" type="submit">Enviar consulta</button>
+          </form>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Antonio Aláez Gutiérrez - Procurador de los Tribunales en León. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="#inicio" aria-label="Antonio Aláez, volver al inicio">
+          <span class="brand-mark" aria-hidden="true">AA</span>
+          <span class="brand-text"><strong>Antonio Aláez</strong><span>Procurador de los Tribunales</span></span>
+        </a>
+        <ul class="footer-nav">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#metodo">Cómo trabajo</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Antonio Aláez Gutiérrez. Todos los derechos reservados.</p>
+        <p>Procurador de los Tribunales · Colegiado nº 299 · León</p>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+  <a class="mobile-call" href="tel:+34606375639" aria-label="Llamar al 606 375 639">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.6 10.8c1.8 3.5 3.2 4.9 6.7 6.7l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.6 21.3 2.7 13.4 2.7 3.6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.7 3.8.1.4 0 .8-.2 1.1l-2.1 2.3Z"/></svg>
+    Llamar ahora
+  </a>
 
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-links');
 
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
+    function closeMenu() {
+      menu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Abrir menú');
+    }
 
-        // Form submission with your Formspree endpoint
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('.submit-btn');
-            const loading = submitBtn.querySelector('.loading');
-            
-            // Show loading animation
-            loading.style.display = 'inline-block';
-            submitBtn.disabled = true;
-            
-            // Let the form submit naturally to Formspree
-            // After submission, Formspree will handle the redirect
-        });
+    menuButton.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(30, 58, 138, 0.95)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
-            }
-        });
-
-        // Phone number click to call
-        document.querySelectorAll('[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (!navigator.userAgent.match(/Mobi/)) {
-                    e.preventDefault();
-                    navigator.clipboard.writeText(link.textContent).then(() => {
-                        alert('Número copiado al portapapeles: ' + link.textContent);
-                    });
-                }
-            });
-        });
-    </script>
+    menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 960) closeMenu();
+    });
+  </script>
 </body>
 </html>
