@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Símbolo de Aláez Procurador</title>
+  <defs>
+    <linearGradient id="alaezRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a90f1d"/>
+      <stop offset="48%" stop-color="#c91e30"/>
+      <stop offset="100%" stop-color="#e52a40"/>
+    </linearGradient>
+  </defs>
+  <rect x="7.5" y="7.5" width="113" height="113" rx="1.5" fill="#ffffff" stroke="url(#alaezRed)" stroke-width="9"/>
+  <path fill="url(#alaezRed)" fill-rule="evenodd" d="M31 100 52.5 27h23L97 100H78.5l-4.6-16H54.1l-4.6 16Zm28-34h10L64 46.5Z"/>
+</svg>
