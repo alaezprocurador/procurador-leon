@@ -8,12 +8,18 @@
   <meta name="theme-color" content="#0b1f33">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://alaezprocurador.github.io/procurador-leon/">
+  <link rel="icon" href="assets/alaez-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/alaez-mark-512.png">
   <meta property="og:locale" content="es_ES">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Antonio Aláez | Procurador de los Tribunales en León">
   <meta property="og:description" content="Representación procesal ágil, rigurosa y cercana en toda la provincia de León.">
   <meta property="og:url" content="https://alaezprocurador.github.io/procurador-leon/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://alaezprocurador.github.io/procurador-leon/assets/alaez-social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aláez, abogado y procurador">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -23,8 +29,8 @@
       --navy: #0b1f33;
       --navy-soft: #173650;
       --blue: #285b7d;
-      --gold: #b8874c;
-      --gold-light: #e9d5b9;
+      --gold: #c51f2e;
+      --gold-light: #f0cfd3;
       --paper: #f7f4ee;
       --white: #ffffff;
       --muted: #66717e;
@@ -103,8 +109,8 @@
       transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
     }
     .button:hover { transform: translateY(-2px); }
-    .button-primary { color: var(--navy); background: var(--gold-light); }
-    .button-primary:hover { background: #f4e4cb; }
+    .button-primary { color: var(--white); background: var(--gold); box-shadow: 0 10px 30px rgba(197,31,46,.24); }
+    .button-primary:hover { background: #a91825; }
     .button-secondary { color: var(--white); border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.06); }
     .button-secondary:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.1); }
     .button-dark { color: var(--white); background: var(--navy); }
@@ -121,28 +127,13 @@
       backdrop-filter: blur(14px);
     }
     .navbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 13px; color: var(--white); text-decoration: none; }
-    .brand-mark {
-      width: 43px;
-      height: 43px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(233,213,185,.65);
-      border-radius: 50%;
-      color: var(--gold-light);
-      font-family: var(--serif);
-      font-size: .88rem;
-      font-weight: 700;
-      letter-spacing: -.03em;
-    }
-    .brand-text { display: grid; line-height: 1.15; }
-    .brand-text strong { font-family: var(--serif); font-size: .98rem; }
-    .brand-text span { margin-top: 4px; color: rgba(255,255,255,.68); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+    .brand { display: inline-flex; align-items: center; color: var(--white); text-decoration: none; }
+    .brand-logo { width: 238px; height: auto; }
     .nav-links { display: flex; align-items: center; gap: 26px; margin: 0; padding: 0; list-style: none; }
     .nav-links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .92rem; font-weight: 600; }
     .nav-links a:not(.nav-cta):hover { color: var(--white); }
-    .nav-links .nav-cta { padding: 10px 15px; border: 1px solid rgba(233,213,185,.5); border-radius: 8px; color: var(--gold-light); }
-    .nav-links .nav-cta:hover { border-color: var(--gold-light); background: rgba(233,213,185,.08); }
+    .nav-links .nav-cta { padding: 10px 15px; border: 1px solid rgba(240,207,211,.5); border-radius: 8px; color: var(--gold-light); }
+    .nav-links .nav-cta:hover { border-color: var(--gold-light); background: rgba(240,207,211,.08); }
     .menu-toggle {
       display: none;
       width: 46px;
@@ -178,9 +169,9 @@
       height: 650px;
       top: -290px;
       right: -170px;
-      border: 1px solid rgba(233,213,185,.24);
+      border: 1px solid rgba(240,207,211,.24);
       border-radius: 50%;
-      box-shadow: 0 0 0 90px rgba(233,213,185,.025), 0 0 0 180px rgba(233,213,185,.02);
+      box-shadow: 0 0 0 90px rgba(240,207,211,.025), 0 0 0 180px rgba(240,207,211,.02);
     }
     .hero-grid {
       position: relative;
@@ -212,7 +203,7 @@
       content: "";
       position: absolute;
       inset: 12px;
-      border: 1px solid rgba(233,213,185,.12);
+      border: 1px solid rgba(240,207,211,.12);
       border-radius: 1px 20px 1px 20px;
       pointer-events: none;
     }
@@ -228,7 +219,7 @@
       place-items: center;
       border-radius: 50%;
       color: var(--gold-light);
-      background: rgba(233,213,185,.1);
+      background: rgba(240,207,211,.1);
     }
     .check svg { width: 14px; height: 14px; }
     .card-footer { display: flex; justify-content: space-between; gap: 16px; padding-top: 24px; color: rgba(255,255,255,.52); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
@@ -277,23 +268,14 @@
       border-right: 1px solid rgba(255,255,255,.12);
       background: var(--navy-soft);
     }
-    .profile-visual::before, .profile-visual::after { content: ""; position: absolute; border: 1px solid rgba(233,213,185,.2); border-radius: 50%; }
+    .profile-visual::before, .profile-visual::after { content: ""; position: absolute; border: 1px solid rgba(240,207,211,.2); border-radius: 50%; }
     .profile-visual::before { width: 460px; height: 460px; }
     .profile-visual::after { width: 330px; height: 330px; }
-    .monogram {
+    .profile-logo {
       position: relative;
       z-index: 1;
-      width: 220px;
-      height: 220px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(233,213,185,.55);
-      border-radius: 50%;
-      color: var(--gold-light);
-      font-family: var(--serif);
-      font-size: 4.8rem;
-      letter-spacing: -.08em;
-      box-shadow: 0 0 0 18px rgba(233,213,185,.035);
+      width: min(430px, 78%);
+      height: auto;
     }
     .profile-content { display: flex; flex-direction: column; justify-content: center; padding: clamp(60px, 8vw, 105px); }
     .profile-content p { max-width: 600px; color: rgba(255,255,255,.7); font-size: 1.05rem; }
@@ -373,8 +355,8 @@
       gap: 9px;
       padding: 12px 17px;
       border-radius: 999px;
-      color: var(--navy);
-      background: var(--gold-light);
+      color: var(--white);
+      background: var(--gold);
       box-shadow: 0 12px 35px rgba(7,22,36,.24);
       text-decoration: none;
       font-size: .88rem;
@@ -414,7 +396,7 @@
     @media (max-width: 720px) {
       .container { width: min(100% - 28px, 1160px); }
       .navbar { min-height: 72px; }
-      .brand-text span { display: none; }
+      .brand-logo { width: 188px; }
       .nav-links { inset: 73px 0 auto; }
       .hero::after { right: -410px; }
       .hero-grid { padding-block: 62px 70px; gap: 52px; }
@@ -433,7 +415,7 @@
       .profile-visual { min-height: 390px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
       .profile-visual::before { width: 350px; height: 350px; }
       .profile-visual::after { width: 260px; height: 260px; }
-      .monogram { width: 170px; height: 170px; font-size: 3.8rem; }
+      .profile-logo { width: min(360px, 82%); }
       .profile-content { padding: 62px 24px; }
       .profile-facts li { display: grid; gap: 4px; }
       .profile-facts strong { text-align: left; }
@@ -476,11 +458,7 @@
   <header class="site-header">
     <nav class="navbar container" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Antonio Aláez, inicio">
-        <span class="brand-mark" aria-hidden="true">AA</span>
-        <span class="brand-text">
-          <strong>Antonio Aláez</strong>
-          <span>Procurador de los Tribunales</span>
-        </span>
+        <img class="brand-logo" src="assets/alaez-logo-light.svg" alt="Aláez — Abogado · Procurador" width="640" height="126">
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -637,7 +615,7 @@
     <section class="profile" id="sobre-mi">
       <div class="profile-grid">
         <div class="profile-visual" aria-hidden="true">
-          <div class="monogram">AA</div>
+          <img class="profile-logo" src="assets/alaez-logo-light.svg" alt="" width="640" height="126">
         </div>
         <div class="profile-content">
           <p class="eyebrow light">Perfil profesional</p>
@@ -762,8 +740,7 @@
     <div class="container">
       <div class="footer-top">
         <a class="brand" href="#inicio" aria-label="Antonio Aláez, volver al inicio">
-          <span class="brand-mark" aria-hidden="true">AA</span>
-          <span class="brand-text"><strong>Antonio Aláez</strong><span>Procurador de los Tribunales</span></span>
+          <img class="brand-logo" src="assets/alaez-logo-light.svg" alt="Aláez — Abogado · Procurador" width="640" height="126">
         </a>
         <ul class="footer-nav">
           <li><a href="#servicios">Servicios</a></li>
