@@ -312,7 +312,7 @@
     .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(50px, 9vw, 110px); align-items: start; }
     .contact-lead { margin-bottom: 38px; }
     .contact-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
-    .contact-list a, .contact-list .contact-static { display: flex; gap: 16px; align-items: flex-start; padding: 18px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; transition: border-color .2s ease, box-shadow .2s ease; }
+    .contact-list a { display: flex; gap: 16px; align-items: flex-start; padding: 18px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; transition: border-color .2s ease, box-shadow .2s ease; }
     .contact-list a:hover { border-color: #b9c5ca; box-shadow: var(--shadow-sm); }
     .contact-list .icon-wrap { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 50%; color: var(--blue); background: #edf3f6; }
     .contact-list svg { width: 18px; height: 18px; }
@@ -452,8 +452,11 @@
   {
     "@context": "https://schema.org",
     "@type": "LegalService",
+    "@id": "https://alaezprocurador.github.io/procurador-leon/#despacho",
     "name": "Antonio Aláez Gutiérrez — Procurador de los Tribunales",
     "url": "https://alaezprocurador.github.io/procurador-leon/",
+    "logo": "https://alaezprocurador.github.io/procurador-leon/assets/alaez-mark-512.png",
+    "image": "https://alaezprocurador.github.io/procurador-leon/assets/alaez-social-card.png",
     "telephone": "+34 606 375 639",
     "description": "Procurador de los Tribunales en León con más de 15 años de experiencia.",
     "address": {
@@ -464,6 +467,11 @@
       "addressRegion": "Castilla y León",
       "addressCountry": "ES"
     },
+    "sameAs": [
+      "https://share.google/dGC6rQGlfaH14gutF",
+      "https://es.linkedin.com/in/alaezprocurador",
+      "https://directorio.cgpe.es/DetColegiado.aspx?Id=36628&UIHJ=N"
+    ],
     "areaServed": [
       { "@type": "AdministrativeArea", "name": "Partido judicial de León" },
       { "@type": "AdministrativeArea", "name": "Partido judicial de Ponferrada" },
@@ -735,10 +743,10 @@
               </a>
             </li>
             <li>
-              <div class="contact-static">
+              <a href="https://share.google/dGC6rQGlfaH14gutF" target="_blank" rel="noopener noreferrer" aria-label="Ver el despacho en Google Maps">
                 <span class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-                <span><small>Despacho</small><strong>Calle Los Aluches, 19, 5º G · 24005 León</strong></span>
-              </div>
+                <span><small>Despacho · Ver en Google Maps</small><strong>Calle Los Aluches, 19, 5º G · 24005 León</strong></span>
+              </a>
             </li>
           </ul>
         </div>
