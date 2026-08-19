@@ -284,6 +284,25 @@
     .profile-facts span { color: rgba(255,255,255,.55); }
     .profile-facts strong { text-align: right; font-weight: 600; }
 
+    .coverage { padding: 105px 0; background: var(--paper); }
+    .coverage-head { display: grid; grid-template-columns: 1fr .8fr; gap: clamp(40px, 8vw, 100px); align-items: end; margin-bottom: 44px; }
+    .coverage-head .section-copy { margin-bottom: 0; }
+    .court-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .court-card {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border: 1px solid #d7dcde;
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: 0 8px 22px rgba(11,31,51,.045);
+    }
+    .court-card span { color: var(--gold); font-family: var(--serif); font-size: 1.15rem; }
+    .court-card strong { color: var(--navy); font-family: var(--serif); font-size: 1.18rem; }
+    .coverage-note { margin: 24px 0 0; color: var(--muted); font-size: .9rem; }
+
     .faq { padding: 105px 0; background: var(--paper); }
     .faq-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(50px, 9vw, 110px); align-items: start; }
     .faq-intro { position: sticky; top: 120px; }
@@ -317,7 +336,7 @@
     .field { display: grid; gap: 7px; }
     .field.full { grid-column: 1 / -1; }
     .field label { font-size: .85rem; font-weight: 700; }
-    .field input, .field textarea {
+    .field input, .field textarea, .field select {
       width: 100%;
       border: 1px solid #cfd5d7;
       border-radius: 8px;
@@ -325,10 +344,20 @@
       background: var(--white);
       transition: border-color .2s ease, box-shadow .2s ease;
     }
-    .field input { height: 50px; padding: 0 14px; }
+    .field input, .field select { height: 50px; padding: 0 14px; }
+    .field select { cursor: pointer; }
     .field textarea { min-height: 142px; padding: 13px 14px; resize: vertical; }
-    .field input:focus, .field textarea:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(40,91,125,.13); }
+    .field input:focus, .field textarea:focus, .field select:focus { outline: 0; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(40,91,125,.13); }
     .field input::placeholder, .field textarea::placeholder { color: #929aa1; }
+    .field-hint { margin: -1px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.45; }
+    .field.is-hidden { display: none; }
+    .estimate-box { grid-column: 1 / -1; padding: 22px; border: 1px solid #c9d3d7; border-left: 4px solid var(--gold); border-radius: 10px; background: var(--white); }
+    .estimate-label { margin-bottom: 5px; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .estimate-value { margin-bottom: 8px; color: var(--navy); font-family: var(--serif); font-size: clamp(1.45rem, 3vw, 2rem); font-weight: 700; line-height: 1.25; }
+    .estimate-detail { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
+    .estimate-legal { grid-column: 1 / -1; margin: -2px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+    .estimate-legal strong { color: var(--ink); }
+    .estimate-legal a { color: var(--blue); font-weight: 700; }
     .form-note { margin: 18px 0; color: var(--muted); font-size: .8rem; }
     .submit-button { width: 100%; border: 0; cursor: pointer; }
     .honeypot { position: absolute; left: -9999px; }
@@ -383,7 +412,8 @@
       .case-card { max-width: 620px; }
       .section-head { display: block; }
       .section-head .section-copy { max-width: 680px; }
-      .approach-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; }
+      .approach-grid, .faq-grid, .contact-grid, .coverage-head { grid-template-columns: 1fr; }
+      .court-grid { grid-template-columns: repeat(2, 1fr); }
       .approach-copy, .faq-intro { position: static; }
       .profile-grid { grid-template-columns: .75fr 1.25fr; }
       .profile-visual { min-height: 520px; }
@@ -404,7 +434,7 @@
       .trust-grid { grid-template-columns: 1fr; }
       .trust-item, .trust-item:first-child, .trust-item:last-child { min-height: auto; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
       .trust-item:last-child { border-bottom: 0; }
-      .services, .approach, .faq, .contact { padding: 78px 0; }
+      .services, .approach, .coverage, .faq, .contact { padding: 78px 0; }
       .services-grid { grid-template-columns: 1fr; }
       .service-card { min-height: 0; }
       .service-top { margin-bottom: 32px; }
@@ -418,10 +448,16 @@
       .profile-facts strong { text-align: left; }
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
+      .estimate-box, .estimate-legal { grid-column: auto; }
       .footer-top, .footer-bottom { display: grid; }
       .footer-nav { justify-content: flex-start; }
       .mobile-call { display: inline-flex; }
       .site-footer { padding-bottom: 88px; }
+    }
+
+    @media (max-width: 520px) {
+      .court-grid { grid-template-columns: 1fr; }
+      .court-card { min-height: 108px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -445,7 +481,15 @@
       "addressRegion": "Castilla y León",
       "addressCountry": "ES"
     },
-    "areaServed": "Provincia de León"
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Partido judicial de León" },
+      { "@type": "AdministrativeArea", "name": "Partido judicial de Ponferrada" },
+      { "@type": "AdministrativeArea", "name": "Partido judicial de Astorga" },
+      { "@type": "AdministrativeArea", "name": "Partido judicial de La Bañeza" },
+      { "@type": "AdministrativeArea", "name": "Partido judicial de Cistierna" },
+      { "@type": "AdministrativeArea", "name": "Partido judicial de Sahagún" },
+      { "@type": "AdministrativeArea", "name": "Partido judicial de Villablino" }
+    ]
   }
   </script>
 </head>
@@ -464,10 +508,10 @@
       </button>
       <ul class="nav-links" id="main-menu">
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#metodo">Cómo trabajo</a></li>
+        <li><a href="#partidos">Partidos judiciales</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
-        <li><a class="nav-cta" href="#contacto">Contacto</a></li>
+        <li><a class="nav-cta" href="#presupuesto">Presupuesto</a></li>
       </ul>
     </nav>
   </header>
@@ -578,6 +622,28 @@
       </div>
     </section>
 
+    <section class="coverage" id="partidos">
+      <div class="container">
+        <div class="coverage-head">
+          <div>
+            <p class="eyebrow">Ámbito de actuación</p>
+            <h2>Procurador en los siete partidos judiciales de León.</h2>
+          </div>
+          <p class="section-copy">Representación procesal y gestiones de procura en toda la provincia, con coordinación directa con abogados y despachos.</p>
+        </div>
+        <div class="court-grid" aria-label="Partidos judiciales de la provincia de León">
+          <article class="court-card"><span>01</span><strong>León</strong></article>
+          <article class="court-card"><span>02</span><strong>Ponferrada</strong></article>
+          <article class="court-card"><span>03</span><strong>Astorga</strong></article>
+          <article class="court-card"><span>04</span><strong>La Bañeza</strong></article>
+          <article class="court-card"><span>05</span><strong>Cistierna</strong></article>
+          <article class="court-card"><span>06</span><strong>Sahagún</strong></article>
+          <article class="court-card"><span>07</span><strong>Villablino</strong></article>
+        </div>
+        <p class="coverage-note">Indique el partido judicial, el órgano y la actuación que necesita para confirmar el encargo y recibir una propuesta adaptada.</p>
+      </div>
+    </section>
+
     <section class="approach" id="metodo">
       <div class="approach-grid container">
         <div class="approach-copy">
@@ -653,13 +719,13 @@
           <details>
             <summary>¿En qué territorio presta servicio?</summary>
             <div class="faq-answer">
-              <p>Presto servicio de procura en toda la provincia de León. Puede indicarme el juzgado y el tipo de procedimiento para confirmar la actuación necesaria.</p>
+              <p>Presto servicio en los siete partidos judiciales de la provincia: León, Ponferrada, Astorga, La Bañeza, Cistierna, Sahagún y Villablino.</p>
             </div>
           </details>
           <details>
-            <summary>¿Cómo puedo solicitar presupuesto?</summary>
+            <summary>¿El cálculo de la web es un presupuesto definitivo?</summary>
             <div class="faq-answer">
-              <p>Puede llamar directamente o completar el formulario de contacto. El presupuesto se adapta a la clase de procedimiento y a las actuaciones que requiera el asunto.</p>
+              <p>No. La cifra es una referencia arancelaria máxima y orientativa conforme al arancel vigente. No es vinculante ni incluye IVA, suplidos o actuaciones adicionales. El presupuesto definitivo se prepara después de revisar las características concretas del asunto.</p>
             </div>
           </details>
         </div>
@@ -670,8 +736,8 @@
       <div class="contact-grid container">
         <div>
           <p class="eyebrow">Contacto</p>
-          <h2>Hablemos de su procedimiento.</h2>
-          <p class="section-copy contact-lead">Puede llamar directamente o enviarme una consulta breve mediante el formulario. Le responderé personalmente.</p>
+          <h2>Presupuesto adaptado a su procedimiento.</h2>
+          <p class="section-copy contact-lead">Puede llamar directamente o completar la solicitud con el partido judicial, el procedimiento y su cuantía. El mensaje seguirá llegando directamente a mi correo.</p>
           <ul class="contact-list">
             <li>
               <a href="tel:+34606375639">
@@ -694,11 +760,13 @@
           </ul>
         </div>
 
-        <div class="contact-form">
-          <h3>Solicitar contacto</h3>
-          <p class="form-intro">Indique sus datos y el motivo de la consulta. El mensaje llegará directamente a mi correo.</p>
+        <div class="contact-form" id="presupuesto">
+          <h3>Solicitar presupuesto</h3>
+          <p class="form-intro">Calcule una referencia arancelaria y envíeme los datos del procedimiento. Revisaré personalmente el asunto antes de confirmar cualquier importe.</p>
           <form action="https://formspree.io/f/mzzavjqn" method="post" id="contactForm">
-            <input type="hidden" name="_subject" value="Nueva consulta desde la web de Antonio Aláez">
+            <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto desde la web de Antonio Aláez">
+            <input type="hidden" name="referencia_arancelaria" id="referenciaArancelaria" value="Pendiente de cálculo">
+            <input type="hidden" name="normativa_calculo" value="Real Decreto 434/2024, de 30 de abril, con la modificación del Real Decreto 913/2024">
             <div class="honeypot" aria-hidden="true">
               <label for="website">No complete este campo</label>
               <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
@@ -712,17 +780,88 @@
                 <label for="telefono">Teléfono</label>
                 <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="600 000 000" maxlength="30">
               </div>
-              <div class="field full">
+              <div class="field">
                 <label for="email">Correo electrónico</label>
                 <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.es" required maxlength="150">
               </div>
+              <div class="field">
+                <label for="perfil">Solicita el presupuesto como</label>
+                <select id="perfil" name="perfil" required>
+                  <option value="">Seleccione una opción</option>
+                  <option>Abogado/a</option>
+                  <option>Despacho profesional</option>
+                  <option>Cliente particular</option>
+                  <option>Empresa u otra entidad</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="despacho">Despacho o entidad <span aria-hidden="true">(opcional)</span></label>
+                <input id="despacho" name="despacho" type="text" autocomplete="organization" placeholder="Nombre del despacho" maxlength="150">
+              </div>
+              <div class="field">
+                <label for="partidoJudicial">Partido judicial</label>
+                <select id="partidoJudicial" name="partido_judicial" required>
+                  <option value="">Seleccione el partido judicial</option>
+                  <option>León</option>
+                  <option>Ponferrada</option>
+                  <option>Astorga</option>
+                  <option>La Bañeza</option>
+                  <option>Cistierna</option>
+                  <option>Sahagún</option>
+                  <option>Villablino</option>
+                  <option>Otro / por confirmar</option>
+                </select>
+              </div>
               <div class="field full">
-                <label for="message">Motivo de la consulta</label>
-                <textarea id="message" name="message" placeholder="Explique brevemente qué gestión necesita" required maxlength="2000"></textarea>
+                <label for="procedimiento">Tipo de procedimiento</label>
+                <select id="procedimiento" name="procedimiento" required>
+                  <option value="">Seleccione una opción</option>
+                  <optgroup label="Procedimientos civiles">
+                    <option value="verbal">Juicio verbal de cuantía determinada</option>
+                    <option value="ordinario">Juicio ordinario de cuantía determinada</option>
+                    <option value="civil-indeterminada">Procedimiento civil de cuantía indeterminada</option>
+                    <option value="ordinario-indeterminado">Juicio ordinario de cuantía indeterminada</option>
+                    <option value="monitorio">Procedimiento monitorio — fase inicial</option>
+                    <option value="cambiario">Juicio cambiario — fase inicial</option>
+                    <option value="ejecucion">Ejecución de títulos — fase inicial</option>
+                    <option value="ejecucion-apremio">Ejecución de títulos con vía de apremio</option>
+                    <option value="apelacion-verbal">Apelación procedente de juicio verbal</option>
+                    <option value="apelacion-ordinario">Apelación procedente de juicio ordinario</option>
+                  </optgroup>
+                  <optgroup label="Familia y personas">
+                    <option value="familia-mutuo">Separación o divorcio de mutuo acuerdo</option>
+                    <option value="familia-contencioso">Proceso de familia contencioso</option>
+                    <option value="apoyo-filiacion">Medidas de apoyo, filiación o estado civil</option>
+                  </optgroup>
+                  <option value="otro">Otro procedimiento / requiere estudio</option>
+                </select>
+              </div>
+              <div class="field full is-hidden" id="cuantiaField">
+                <label for="cuantia">Cuantía del procedimiento</label>
+                <input id="cuantia" name="cuantia" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="Ej.: 18000">
+                <p class="field-hint" id="cuantiaHint">Indique el principal reclamado y, cuando proceda, los intereses vencidos incluidos en la base.</p>
+              </div>
+              <div class="estimate-box" id="estimateBox" role="status" aria-live="polite">
+                <p class="estimate-label">Referencia arancelaria</p>
+                <p class="estimate-value" id="estimateValue">Seleccione el procedimiento</p>
+                <p class="estimate-detail" id="estimateDetail">La herramienta mostrará, cuando sea posible, el importe máximo orientativo antes de IVA.</p>
+              </div>
+              <p class="estimate-legal"><strong>Cálculo no vinculante.</strong> Es una aproximación basada en el Real Decreto 434/2024, modificado por el Real Decreto 913/2024. El arancel establece importes máximos y permite pactar cantidades inferiores. No incluye IVA, suplidos, incidencias, recursos ni actuaciones no seleccionadas. El presupuesto definitivo se facilitará después de revisar el expediente. <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2024-8706" target="_blank" rel="noopener noreferrer">Consultar el arancel vigente en el BOE</a>.</p>
+              <div class="field">
+                <label for="urgencia">Urgencia</label>
+                <select id="urgencia" name="urgencia">
+                  <option>Sin urgencia inmediata</option>
+                  <option>Existe un plazo o señalamiento próximo</option>
+                  <option>Gestión urgente</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message">Datos del asunto</label>
+                <textarea id="message" name="message" placeholder="Indique el órgano judicial, la actuación necesaria y cualquier dato útil para preparar el presupuesto" required maxlength="2000"></textarea>
               </div>
             </div>
             <p class="form-note">No envíe documentación confidencial mediante este formulario. Los datos se utilizarán únicamente para responder a su consulta.</p>
-            <button class="button button-dark submit-button" type="submit">Enviar consulta</button>
+            <button class="button button-dark submit-button" type="submit">Solicitar presupuesto personalizado</button>
           </form>
         </div>
       </div>
@@ -737,10 +876,10 @@
         </a>
         <ul class="footer-nav">
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#metodo">Cómo trabajo</a></li>
+          <li><a href="#partidos">Partidos judiciales</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#preguntas">Preguntas</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#presupuesto">Presupuesto</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
@@ -780,6 +919,106 @@
     window.addEventListener('resize', () => {
       if (window.innerWidth > 960) closeMenu();
     });
+
+    const arancelScale = [
+      [60, 13.01], [120, 23.48], [180, 28.63], [240, 35.15], [300, 40.43],
+      [360, 46.94], [420, 57.28], [480, 63.36], [540, 66.93], [600, 71.39],
+      [1200, 89.25], [1800, 107.10], [2400, 120.49], [3000, 133.87],
+      [3600, 151.71], [4200, 169.56], [4800, 187.42], [5400, 205.27],
+      [6000, 223.11], [12000, 356.99], [24000, 535.50], [36000, 714.00],
+      [48000, 892.50], [60000, 1026.36], [90000, 1115.63], [120000, 1204.88],
+      [180000, 1294.12], [240000, 1383.37], [300000, 1472.62],
+      [360000, 1561.87], [420000, 1651.12], [480000, 1829.61],
+      [540000, 1927.80], [600000, 2079.53]
+    ];
+
+    const procedureRules = {
+      'verbal': { factor: 1, article: 'arts. 2 y 18 del arancel', amount: true },
+      'ordinario': { factor: 1.10, article: 'arts. 2 y 18.d del arancel (+10 %)', amount: true },
+      'civil-indeterminada': { fixed: 351, article: 'art. 3 del arancel' },
+      'ordinario-indeterminado': { fixed: 386.10, article: 'arts. 3 y 18.d del arancel (+10 %)' },
+      'monitorio': { fixed: 47.25, article: 'art. 24.1 del arancel; fase inicial' },
+      'cambiario': { factor: 1, article: 'arts. 2 y 25.1 del arancel; fase inicial', amount: true },
+      'ejecucion': { factor: 1, article: 'arts. 2, 39 y 40.1 del arancel; hasta el inicio del apremio', amount: true },
+      'ejecucion-apremio': { factor: 1.50, article: 'arts. 2, 39 y 40.1–2 del arancel', amount: true },
+      'apelacion-verbal': { factor: 1.20, article: 'arts. 2 y 50 del arancel (+20 %)', amount: true },
+      'apelacion-ordinario': { factor: 1.32, article: 'arts. 2, 18.d y 50 del arancel (+10 % y +20 %)', amount: true },
+      'familia-mutuo': { fixed: 70.21, article: 'art. 22.1.a del arancel; sin medidas económicas' },
+      'familia-contencioso': { fixed: 100.31, article: 'art. 22.3.a del arancel; sin medidas económicas' },
+      'apoyo-filiacion': { fixed: 120.37, article: 'art. 21.1 del arancel' }
+    };
+
+    const procedureSelect = document.querySelector('#procedimiento');
+    const amountField = document.querySelector('#cuantiaField');
+    const amountInput = document.querySelector('#cuantia');
+    const amountHint = document.querySelector('#cuantiaHint');
+    const estimateValue = document.querySelector('#estimateValue');
+    const estimateDetail = document.querySelector('#estimateDetail');
+    const estimateHidden = document.querySelector('#referenciaArancelaria');
+
+    const euroFormat = new Intl.NumberFormat('es-ES', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    function scaleMaximum(amount) {
+      if (amount <= 600000) {
+        const bracket = arancelScale.find(([limit]) => amount <= limit);
+        return bracket ? bracket[1] : arancelScale[arancelScale.length - 1][1];
+      }
+      const additionalFractions = Math.ceil((amount - 600000) / 6000);
+      return 2079.53 + (additionalFractions * 15.17);
+    }
+
+    function updateEstimate() {
+      const selected = procedureSelect.value;
+      const rule = procedureRules[selected];
+      const needsAmount = Boolean(rule && rule.amount);
+
+      amountField.classList.toggle('is-hidden', !needsAmount);
+      amountInput.required = needsAmount;
+      amountInput.disabled = !needsAmount;
+
+      if (selected === 'ejecucion' || selected === 'ejecucion-apremio' || selected === 'cambiario') {
+        amountHint.textContent = 'Indique la suma del principal, intereses y costas por la que se despacha ejecución.';
+      } else {
+        amountHint.textContent = 'Indique el principal reclamado y, cuando proceda, los intereses vencidos incluidos en la base.';
+      }
+
+      if (!selected) {
+        estimateValue.textContent = 'Seleccione el procedimiento';
+        estimateDetail.textContent = 'La herramienta mostrará, cuando sea posible, el importe máximo orientativo antes de IVA.';
+        estimateHidden.value = 'Pendiente de cálculo';
+        return;
+      }
+
+      if (selected === 'otro') {
+        estimateValue.textContent = 'Requiere revisión individual';
+        estimateDetail.textContent = 'Envíe los datos del asunto y prepararé una propuesta personalizada.';
+        estimateHidden.value = 'Procedimiento no calculable automáticamente; requiere revisión';
+        return;
+      }
+
+      if (needsAmount && (!amountInput.value || Number(amountInput.value) <= 0)) {
+        estimateValue.textContent = 'Introduzca la cuantía';
+        estimateDetail.textContent = 'La referencia se actualizará automáticamente al indicar la cuantía del procedimiento.';
+        estimateHidden.value = 'Pendiente de indicar cuantía';
+        return;
+      }
+
+      const rawAmount = rule.fixed ?? (scaleMaximum(Number(amountInput.value)) * rule.factor);
+      const maximum = Math.min(rawAmount, 75000);
+      const formatted = euroFormat.format(maximum);
+      estimateValue.textContent = `${formatted} + IVA`;
+      estimateDetail.textContent = `Importe máximo orientativo calculado conforme a ${rule.article}. No constituye un presupuesto definitivo.`;
+      estimateHidden.value = `${formatted} + IVA — máximo orientativo, no vinculante — ${rule.article}`;
+    }
+
+    procedureSelect.addEventListener('change', updateEstimate);
+    amountInput.addEventListener('input', updateEstimate);
+    updateEstimate();
   </script>
 </body>
 </html>
