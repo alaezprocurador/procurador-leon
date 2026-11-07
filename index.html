@@ -266,22 +266,41 @@
       position: relative;
       min-height: 600px;
       display: grid;
-      place-items: center;
+      place-items: end center;
+      padding: 0 0 72px;
       overflow: hidden;
+      isolation: isolate;
       border-right: 1px solid rgba(255,255,255,.12);
-      background-color: var(--navy-soft);
-      background-image: linear-gradient(rgba(11,31,51,.60), rgba(11,31,51,.76)), url('assets/catedral-vidrieras-leon.jpg');
-      background-size: cover;
-      background-position: center;
+      background: var(--navy-soft);
     }
-    .profile-visual::before, .profile-visual::after { content: ""; position: absolute; border: 1px solid rgba(240,207,211,.2); border-radius: 50%; }
+    .profile-photo {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.58);
+      animation: cathedralPhotoFade 18s ease-in-out infinite;
+    }
+    .profile-photo--exterior { animation-delay: -9s; }
+    @keyframes cathedralPhotoFade {
+      0%, 42% { opacity: 1; }
+      50%, 92% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .profile-visual::before, .profile-visual::after { content: ""; position: absolute; z-index: 1; border: 1px solid rgba(240,207,211,.2); border-radius: 50%; pointer-events: none; }
     .profile-visual::before { width: 460px; height: 460px; }
     .profile-visual::after { width: 330px; height: 330px; }
     .profile-logo {
       position: relative;
-      z-index: 1;
-      width: min(430px, 78%);
+      z-index: 2;
+      width: min(360px, 74%);
       height: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .profile-photo { animation: none; }
+      .profile-photo--exterior { opacity: 0; }
     }
     .profile-content { display: flex; flex-direction: column; justify-content: center; padding: clamp(60px, 8vw, 105px); }
     .profile-content p { max-width: 600px; color: rgba(255,255,255,.7); font-size: 1.05rem; }
@@ -675,6 +694,8 @@
     <section class="profile" id="sobre-mi">
       <div class="profile-grid">
         <div class="profile-visual" aria-hidden="true">
+          <img class="profile-photo profile-photo--windows" src="assets/catedral-vidrieras-leon.jpg" alt="">
+          <img class="profile-photo profile-photo--exterior" src="assets/catedral-exterior-leon.jpg" alt="">
           <img class="profile-logo" src="assets/alaez-logo-light.svg" alt="" width="720" height="132">
         </div>
         <div class="profile-content">
