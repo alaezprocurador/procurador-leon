@@ -1,13 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
-  <title id="title">Símbolo de Aláez Procurador</title>
-  <defs>
-    <linearGradient id="alaezRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#a90f1d"/>
-      <stop offset="48%" stop-color="#c91e30"/>
-      <stop offset="100%" stop-color="#e52a40"/>
-    </linearGradient>
-  </defs>
-  <rect x="7.5" y="7.5" width="113" height="113" rx="1.5" fill="#ffffff" stroke="url(#alaezRed)" stroke-width="9"/>
-  <path fill="url(#alaezRed)" fill-rule="evenodd" d="M31 100 52.5 27h23L97 100H78.5l-4.6-16H54.1l-4.6 16Zm28-34h10L64 46.5Z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="43 43 214 214" role="img" aria-labelledby="title"><title id="title">Símbolo de Aláez Procurador</title><rect x="43" y="43" width="214" height="214" fill="none" stroke="#E0232E" stroke-width="12" id="rect1" />
+  <path d="m 85.090139,212.10001 h 34.338281 l 8.49697,-27.76846 h 43.44844 l 8.84736,27.76846 h 34.68867 l -44.85,-130.520507 h -41.43369 z m 50.105861,-51.41983 1.75195,-5.60625 c 4.29228,-14.804 8.14658,-31.27236 12.08848,-48.87949 4.20468,17.51953 8.49697,33.98789 13.05205,48.87949 l 1.75195,5.60625 z" id="text1" style="font-weight:800;font-size:179.4px;font-family:Inter;text-anchor:middle;fill:#e0232e" aria-label="A" />
+  </svg>

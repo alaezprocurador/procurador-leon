@@ -128,7 +128,7 @@
     }
     .navbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: inline-flex; align-items: center; color: var(--white); text-decoration: none; }
-    .brand-logo { width: 238px; height: auto; }
+    .brand-logo { width: 210px; max-height: 52px; height: auto; }
     .nav-links { display: flex; align-items: center; gap: 26px; margin: 0; padding: 0; list-style: none; }
     .nav-links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .92rem; font-weight: 600; }
     .nav-links a:not(.nav-cta):hover { color: var(--white); }
@@ -295,7 +295,7 @@
     .profile-logo {
       position: relative;
       z-index: 2;
-      width: min(360px, 74%);
+      width: min(300px, 66%);
       height: auto;
     }
     @media (prefers-reduced-motion: reduce) {
@@ -429,7 +429,7 @@
     @media (max-width: 720px) {
       .container { width: min(100% - 28px, 1160px); }
       .navbar { min-height: 72px; }
-      .brand-logo { width: 188px; }
+      .brand-logo { width: 188px; max-height: 46px; }
       .nav-links { inset: 73px 0 auto; }
       .hero::after { right: -410px; }
       .hero-grid { padding-block: 62px 70px; gap: 52px; }
@@ -515,7 +515,7 @@
   <header class="site-header">
     <nav class="navbar container" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Antonio Aláez, inicio">
-        <img class="brand-logo" src="assets/alaez-logo-light.svg" alt="Aláez — Procurador de los Tribunales" width="720" height="132">
+        <img class="brand-logo" src="assets/alaez-logo-horizontal-light.svg" alt="Aláez — Procurador de los Tribunales" width="1000" height="310">
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -696,7 +696,7 @@
         <div class="profile-visual" aria-hidden="true">
           <img class="profile-photo profile-photo--windows" src="assets/catedral-vidrieras-leon.jpg" alt="">
           <img class="profile-photo profile-photo--exterior" src="assets/catedral-exterior-leon.jpg" alt="">
-          <img class="profile-logo" src="assets/alaez-logo-light.svg" alt="" width="720" height="132">
+          <img class="profile-logo" src="assets/alaez-logo-vertical-light.svg" alt="" width="920" height="480">
         </div>
         <div class="profile-content">
           <p class="eyebrow light">Perfil profesional</p>
@@ -872,7 +872,7 @@
     <div class="container">
       <div class="footer-top">
         <a class="brand" href="#inicio" aria-label="Antonio Aláez, volver al inicio">
-          <img class="brand-logo" src="assets/alaez-logo-light.svg" alt="Aláez — Procurador de los Tribunales" width="720" height="132">
+          <img class="brand-logo" src="assets/alaez-logo-horizontal-light.svg" alt="Aláez — Procurador de los Tribunales" width="1000" height="310">
         </a>
         <ul class="footer-nav">
           <li><a href="#servicios">Servicios</a></li>
